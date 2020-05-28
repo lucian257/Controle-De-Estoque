@@ -17,6 +17,8 @@
 
 echo "<input type='text' placeholder='Ex: UN43NU7100AG' class='pesquisar'>
 <input type='submit' value='Procurar' class = 'botao' >";
+	require('config.php');
+	
 
 ?>
 </div>
