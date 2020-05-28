@@ -1,3 +1,6 @@
+<?php 
+	require('config.php');
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -7,21 +10,19 @@
 	<link rel="stylesheet" href="assets/css/style.css">
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/bootstrap-grid.min.css">
+	<script type="text/javascript" ></script>
 </head>
 <body>
 	<div class="container">
+		<div class= "conteudo">	
+			<?php  
+			echo "<input type='text' placeholder='Ex: UN43NU7100AG' class='pesquisar'>
+			<input type='submit' value='Procurar' class = 'botao' >";	
+			?>
+		</div>
+	</div>
 
-		<div class= "conteudo">
-		
-<?php  
-
-echo "<input type='text' placeholder='Ex: UN43NU7100AG' class='pesquisar'>
-<input type='submit' value='Procurar' class = 'botao' >";
-	require('config.php');
-	
-
-?>
-</div>
-</div>
+	<script type="text/javascript" src="assets/js/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript"></script>
 </body>
 </html>
