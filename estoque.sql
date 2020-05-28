@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 27-Maio-2020 às 03:27
+-- Tempo de geração: 28-Maio-2020 às 02:22
 -- Versão do servidor: 10.4.11-MariaDB
--- versão do PHP: 7.4.2
+-- versão do PHP: 7.2.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -30,8 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `tbl_paletes` (
   `id_paletes` int(11) NOT NULL,
-  `Andar` tinyint(4) NOT NULL,
-  `Coluna` tinyint(4) NOT NULL,
+  `andar` tinyint(4) NOT NULL,
+  `coluna` tinyint(4) NOT NULL,
   `fk_id_ruas` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -55,10 +54,10 @@ CREATE TABLE `tbl_produtos` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tbl_registro`
+-- Estrutura da tabela `tbl_registros`
 --
 
-CREATE TABLE `tbl_registro` (
+CREATE TABLE `tbl_registros` (
   `id_register` int(11) NOT NULL,
   `data` datetime NOT NULL,
   `tipo` int(1) NOT NULL,
@@ -73,9 +72,9 @@ CREATE TABLE `tbl_registro` (
 
 CREATE TABLE `tbl_ruas` (
   `id_ruas` int(11) NOT NULL,
-  `Letras` varchar(2) NOT NULL,
-  `Qtd_Coluna` tinyint(4) NOT NULL,
-  `Qtd_Andar` tinyint(4) NOT NULL
+  `letras` varchar(2) NOT NULL,
+  `qtd_coluna` tinyint(4) NOT NULL,
+  `qtd_andar` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -97,9 +96,9 @@ ALTER TABLE `tbl_produtos`
   ADD KEY `fk_id_paletes` (`fk_id_paletes`);
 
 --
--- Índices para tabela `tbl_registro`
+-- Índices para tabela `tbl_registros`
 --
-ALTER TABLE `tbl_registro`
+ALTER TABLE `tbl_registros`
   ADD PRIMARY KEY (`id_register`),
   ADD KEY `fk_id_produto` (`fk_id_produto`);
 
@@ -126,9 +125,9 @@ ALTER TABLE `tbl_produtos`
   MODIFY `id_produtos` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `tbl_registro`
+-- AUTO_INCREMENT de tabela `tbl_registros`
 --
-ALTER TABLE `tbl_registro`
+ALTER TABLE `tbl_registros`
   MODIFY `id_register` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -148,9 +147,9 @@ ALTER TABLE `tbl_produtos`
   ADD CONSTRAINT `fk_id_paletes` FOREIGN KEY (`fk_id_paletes`) REFERENCES `tbl_paletes` (`id_paletes`);
 
 --
--- Limitadores para a tabela `tbl_registro`
+-- Limitadores para a tabela `tbl_registros`
 --
-ALTER TABLE `tbl_registro`
+ALTER TABLE `tbl_registros`
   ADD CONSTRAINT `fk_id_produto` FOREIGN KEY (`fk_id_produto`) REFERENCES `tbl_produtos` (`id_produtos`);
 COMMIT;
 
