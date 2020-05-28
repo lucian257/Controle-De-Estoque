@@ -1,0 +1,58 @@
+@charset 'utf-8';
+
+.pesquisar{
+    width: 20%;
+    height: 50px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 40%;
+    border: solid 0.1em #ffffff;
+    box-shadow: 7px 7px 3px rgba(0, 0, 0, 0.2);
+    outline: 0;
+    transition: all ease-out 0.2s;
+}
+.pesquisar:focus{
+    width: 50%;
+    transition: all ease-in 0.2s;
+}
+.conteudo{
+    width: 500px;
+    height: 500px;
+    background: #a5be00;
+    margin: auto;
+    position: relative;
+    top: 50px;
+    border: solid 3px #758605;
+    box-shadow: inset 7px 7px 6px #ffffff,10px 7px 5px #999999;
+    border-radius: 20px
+}
+
+
+.botao{
+    width: 25%;
+    background-color: #023e7d;
+    font-family: 'tahoma';
+    color: ivory;
+    border-radius: 20px;
+    border: solid 2px #fff;
+    position: relative;
+    left: 38%;
+    top: 220px;
+    outline: 0;
+}
+.botao:hover{
+    background: ivory;
+    color: #023e7d;;
+}
+
+.botao :hover{
+    background-color: burlywood;
+    text-align: center;
+}
+
+.busca{
+    color: ivory;
+    font-family: 'tahoma';
+}
