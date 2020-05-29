@@ -14,14 +14,15 @@
 </head>
 <body>
 	
+	<img src="assets/images/return.png" alt="" width="50px" style= "margin:10px; display:none" id="retorno">
 	<div class="container">
 		<div id="credencial">
-		<input id="cod" type="text" value="teste" name="codigo">
+		<input id="cod" type="text" value="teste" name="codigo" class="codigo">
 		<button id="enter">Entrar</button>
 	</div>
 
 		<!--        div         -->
-		<div id="corpo" class= "conteudo" style="display: none;width: 90%;height: 700px;">
+		<div id="corpo" class= "conteudo" style="display:none">
 			<!--
 			<input type='text' placeholder='Ex: UN43NU7100AG' class='pesquisar'>
 			<input type='submit' value='Procurar' class = 'botao' >	
@@ -30,7 +31,7 @@
 				$objRuas = new Ruas($PDO);
 				$qt_ruas = $objRuas->getLetras();
 				foreach ($qt_ruas as  $value) { ?>
-					<div style="height: 100px;width: 300px; border: solid 1px black;">
+					<div class = "ruas">
 						<?php  echo "RUA ".$value; ?>
 					</div>
 					<br>

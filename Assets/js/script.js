@@ -6,6 +6,7 @@ $j(document).ready(function(){ // carregar pagina primeiro
 	 }else if (typeof localStorage.status == "ativo") {
 	 	$j("#credencial").css("display", "none");
 		$j("#corpo").css("display", "");
+		
 	 }
 
 	$j("#cod").keydown(function(event){
@@ -26,8 +27,14 @@ $j(document).ready(function(){ // carregar pagina primeiro
 		if (text == "teste") {
 			$j("#credencial").css("display", "none");
 			$j("#corpo").css("display", "");
+			$j("#retorno").css("display", "");
 			localStorage.setItem("status", "ativo");
 		}
-	}); 
+	});
+	$j('#retorno').bind('click', function(){
+		$j("#credencial").css("display", "");
+		$j("#corpo").css("display", "none")
+		$j("#retorno").css("display", 'none')
+	})
 
 });

@@ -18,8 +18,8 @@
     transition: all ease-in 0.2s;
 }
 .conteudo{
-    width: 500px;
-    height: 500px;
+    width: 90%;
+    height: auto;
     background: #a5be00;
     margin: auto;
     position: relative;
@@ -55,4 +55,39 @@
 .busca{
     color: ivory;
     font-family: 'tahoma';
+}
+
+
+.ruas{
+    background-color: ivory;
+    max-width: 200px;
+    height: 100px;
+    margin: 25px;
+    text-align: center;
+    box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.2);
+}
+
+.codigo{
+    width: 30%;
+    height: 40px;
+    position: relative;
+    top: 20px;
+    border-radius: 20px;
+    border: solid 0.5px #fff;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2), inset 5px 5px 5px (rgba(34, 16, 99, 1));
+    outline: 0;
+    background: #023e7d;
+    color: white;
+    font-family: 'tahoma';
+    
+}
+
+#enter{
+    position: relative;
+    top: 20px;
+    background-color: royalblue;
+    border: solid 1px #023e7d;
+    width: 80px;
+    
+    
 }
