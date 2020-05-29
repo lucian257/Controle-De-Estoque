@@ -15,14 +15,11 @@
 <body>
 	<div class="container">
 		<div class= "conteudo">	
-			<?php  
-			echo "<input type='text' placeholder='Ex: UN43NU7100AG' class='pesquisar'>
-			<input type='submit' value='Procurar' class = 'botao' >";	
-			?>
+			<input type='text' placeholder='Ex: UN43NU7100AG' class='pesquisar'>
+			<input type='submit' value='Procurar' class = 'botao' >	
 		</div>
 	</div>
 
 	<script type="text/javascript" src="assets/js/jquery-3.5.1.min.js"></script>
-	<script type="text/javascript"></script>
 </body>
 </html>
