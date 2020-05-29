@@ -27,20 +27,16 @@
 			<input type='text' placeholder='Ex: UN43NU7100AG' class='pesquisar'>
 			<input type='submit' value='Procurar' class = 'botao' >	
 			-->
-			<?php 
-				$objRuas = new Ruas($PDO);
-				$qt_ruas = $objRuas->getLetras();
-				foreach ($qt_ruas as  $value) { ?>
-					<div class = "ruas">
-						<?php  echo "RUA ".$value; ?>
-					</div>
-					<br>
-				<?php } ?>
+			<?php 	
+				$ruas = new ruas($PDO); 
+				$ruas->loadALL();
+
+			?>
 		</div>
 
 	</div>
 
 	<script type="text/javascript" src="assets/js/jquery-3.5.1.min.js"></script>
-	<script type="text/javascript" src="Assets/js/script.js"></script>
+	<script type="text/javascript" src="assets/js/script.js"></script>
 </body>
 </html>
