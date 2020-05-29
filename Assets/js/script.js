@@ -26,7 +26,7 @@ $j(document).ready(function(){ // carregar pagina primeiro
 		if (text == "teste") {
 			$j("#credencial").css("display", "none");
 			$j("#corpo").css("display", "");
-			localStorage.status = "ativo";
+			localStorage.setItem("status", "ativo");
 		}
 	}); 
 
