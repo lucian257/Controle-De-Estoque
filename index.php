@@ -13,8 +13,16 @@
 	<script type="text/javascript" ></script>
 </head>
 <body>
+	<script type="text/javascript" src="Assets/js/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="Assets/js/script.js"></script>
 	<div class="container">
-		<div class= "conteudo">	
+
+		<div id="credencial">
+		<input id="cod" type="text" name="codigo">
+		<button id="enter">Entrar</button>
+		</div>
+
+		<div id="corpo" class= "conteudo" style="display: none;">
 			<input type='text' placeholder='Ex: UN43NU7100AG' class='pesquisar'>
 			<input type='submit' value='Procurar' class = 'botao' >	
 		</div>
