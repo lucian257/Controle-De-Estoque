@@ -13,21 +13,33 @@
 	<script type="text/javascript" ></script>
 </head>
 <body>
-	<script type="text/javascript" src="Assets/js/jquery-3.5.1.min.js"></script>
-	<script type="text/javascript" src="Assets/js/script.js"></script>
+	
 	<div class="container">
-
 		<div id="credencial">
-		<input id="cod" type="text" name="codigo">
+		<input id="cod" type="text" value="teste" name="codigo">
 		<button id="enter">Entrar</button>
-		</div>
+	</div>
 
-		<div id="corpo" class= "conteudo" style="display: none;">
+		<!--        div         -->
+		<div id="corpo" class= "conteudo" style="display: none;width: 90%;height: 700px;">
+			<!--
 			<input type='text' placeholder='Ex: UN43NU7100AG' class='pesquisar'>
 			<input type='submit' value='Procurar' class = 'botao' >	
+			-->
+			<?php 
+				$objRuas = new Ruas($PDO);
+				$qt_ruas = $objRuas->getLetras();
+				foreach ($qt_ruas as  $value) { ?>
+					<div style="height: 100px;width: 300px; border: solid 1px black;">
+						<?php  echo "RUA ".$value; ?>
+					</div>
+					<br>
+				<?php } ?>
 		</div>
+
 	</div>
 
 	<script type="text/javascript" src="assets/js/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="Assets/js/script.js"></script>
 </body>
 </html>
