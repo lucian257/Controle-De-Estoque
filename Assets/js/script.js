@@ -40,6 +40,21 @@ $j(document).ready(function(){ // carregar pagina primeiro
 		window.location.href = window.location.href;
 		
 	})
+	$j(".ruas").bind('click',function(){
+		var letra = $j(this).attr('id');
+		var dados="funcao=carregarRua&letra="+letra;
+		$j.ajax({
+			        type:'POST',
+			        url:'script.php',
+			        data:dados,
+			        success:function(resp){
+			        	$j('#corpo').html(resp);
+			        },
+			        error:function(){
+			        	console.log("error no ajax");
+			        }
+			    });
+	});
 
 
 });
