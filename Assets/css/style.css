@@ -19,14 +19,15 @@
 }
 .conteudo{
     width: 90%;
-    height: auto;
+    height: 800px;
     background: #a5be00;
     margin: auto;
     position: relative;
     top: 50px;
     border: solid 3px #758605;
     box-shadow: inset 7px 7px 6px #ffffff,10px 7px 5px #999999;
-    border-radius: 20px
+    border-radius: 20px;
+    overflow-y:scroll;
 }
 
 
@@ -44,7 +45,7 @@
 }
 .botao:hover{
     background: ivory;
-    color: #023e7d;;
+    color: #023e7d;
 }
 
 .botao :hover{
@@ -59,12 +60,13 @@
 
 
 .ruas{
-    background-color: blue;
-    max-width: 200px;
+    background-color: ivory;
     height: 100px;
-    margin: 25px;
+    margin: 10px;
+    width: 700px;
     text-align: center;
     box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.2);
+    margin-left:100px; 
 }
 
 .codigo{
@@ -72,22 +74,24 @@
     height: 40px;
     position: relative;
     top: 20px;
-    border-radius: 20px;
-    border: solid 0.5px #fff;
+    border-radius: 10px;
+    border: solid 2px #000080;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2), inset 5px 5px 5px (rgba(34, 16, 99, 1));
     outline: 0;
-    background: #023e7d;
-    color: white;
+    background: #f0fff0;
+    color: #1c1c1c;
     font-family: 'tahoma';
-    
+
 }
 
 #enter{
     position: relative;
     top: 20px;
     background-color: royalblue;
-    border: solid 1px #023e7d;
-    width: 80px;
-    
-    
+    border: solid 2px #023e7d;
+    border-radius: 10px;
+    width: 100px;
+    height: 40px;
+    font-size: 20px;
+
 }

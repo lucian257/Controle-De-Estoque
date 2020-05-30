@@ -5,7 +5,7 @@ class loadInterface{
 	protected function loadAllRuas($letras){
 		//carrega todas as ruas
 		foreach ($letras as  $value) { ?>
-			<div class="ruas">
+			<div class="ruas" id="<?php echo $value; ?>">
 				<?php  echo "RUA ".$value; ?>
 			</div>
 			<br>

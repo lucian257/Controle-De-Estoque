@@ -1,12 +1,12 @@
 var $j = jQuery.noConflict();
 $j(document).ready(function(){ // carregar pagina primeiro
-
+	
 	if (typeof localStorage.status =="undefined"){
 		$j("#corpo").css("display", "none");
 	 }else if (typeof localStorage.status) {
 	 	$j("#credencial").css("display", "none");
 		$j("#corpo").css("display", "");
-		
+		$j("#retorno").css("display", "");
 	 }
 
 	$j("#cod").keydown(function(event){
@@ -31,10 +31,12 @@ $j(document).ready(function(){ // carregar pagina primeiro
 			localStorage.setItem("status", "ativo");
 		}
 	});
+
 	$j('#retorno').bind('click', function(){
-		$j("#credencial").css("display", "");
-		$j("#corpo").css("display", "none")
-		$j("#retorno").css("display", 'none')
+		localStorage.removeItem("status");
+		window.location.href = window.location.href;
+		
 	})
+
 
 });
