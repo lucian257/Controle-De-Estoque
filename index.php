@@ -23,12 +23,14 @@
 			<button id="enter" class="btn btn-sm">Entrar</button>
 		</div>
 		</div>
-		<!--        div         -->
-		<div id="corpo" class= "conteudo" style="display:none">
-			<!--
+
+		<div id="pesquisa" style="display: none;">
 			<input type='text' placeholder='Ex: UN43NU7100AG' class='pesquisar'>
 			<input type='submit' value='Procurar' class = 'botao' >	
-			-->
+		</div>
+		<!--        div         -->
+		<div id="corpo" class= "conteudo" style="display:none">
+			
 			<?php 	
 				$ruas = new ruas($PDO); 
 				$ruas->loadALL();

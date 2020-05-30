@@ -20,6 +20,7 @@ $j(document).ready(function(){ // carregar pagina primeiro
 		$j("#corpo").css("display", "");
 		$j("#retorno").css("display", "");
 		$j("#div_inicial").css("display", "none");
+		$j("#pesquisa").css("display", "");
 	 }
 
 	$j("#cod").keydown(function(event){ // Entrar apertando enter
@@ -30,6 +31,7 @@ $j(document).ready(function(){ // carregar pagina primeiro
 	 		$j("#credencial").css("display", "none");
 			$j("#corpo").css("display", "");
 			$j("#div_inicial").css("display", "none");
+			$j("#pesquisa").css("display", "");
 			localStorage.setItem('setupTime', now);
 	 		localStorage.setItem("status", "ativo");
 	 	}else if (tecla == 13 && text != "teste") {
@@ -44,6 +46,7 @@ $j(document).ready(function(){ // carregar pagina primeiro
 			$j("#corpo").css("display", "");
 			$j("#retorno").css("display", "");
 			$j("#div_inicial").css("display", "none");
+			$j("#pesquisa").css("display", "");
 			localStorage.setItem('setupTime', now);
 			localStorage.setItem("status", "ativo");
 		}
