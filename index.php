@@ -16,7 +16,7 @@
 	
 	<img src="assets/images/return.png" alt="" width="50px" style= "margin:10px; display:none" id="retorno">
 	<div class="container">
-	<div id="div_inicial">
+	<div id="div_inicial" style="display: none;">
 	<h3 style="text-align:center;position:relative; top:40px;">Credencial</h3>
 		<div id="credencial">
 			<input id="cod" type="text" value="teste" name="codigo" class="codigo form-control" style="width:40%;">
