@@ -72,6 +72,20 @@ $j(document).ready(function(){ // carregar pagina primeiro
 			}
 		});
 	});
+	$j('#btnVoltar').bind('click',function(){
+		alert("ceeerto");
+		$j.ajax({
+			type:'POST',
+			url:'script.php',
+			data:"funcao=carregarRuas",
+			success:function(resp){
+				$j('#corpo').html(resp);
+			},
+			error:function(){
+				console.log("error no ajax");
+			}
+		});
+	});
 
 
 });

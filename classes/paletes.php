@@ -11,11 +11,18 @@
 		public function getPaletesRua($idRua){
 			// Pega todos os paletes cadastrados de uma rua junto com os dados da rua
 			$sql = $this->PDO->query("SELECT * FROM tbl_ruas INNER JOIN tbl_paletes ON tbl_ruas.id_rua = tbl_paletes.fk_id_rua WHERE tbl_ruas.id_rua = $idRua");
-			$dadosALL = $sql->fetchALL(PDO::FETCH_ASSOC);
+			$dadosAll = $sql->fetchALL(PDO::FETCH_ASSOC);
 			return $dadosAll;
 		}
 		public function loadAllPaletes($dados){
-			$this->loadRua($dataRua,$dataPaletes);
+			$dataRua = $dados[0];
+			for ($i=0; $i < 6; $i++) { 
+				array_pop($dataRua);
+			}
+			//echo "<pre>";
+			//print_r($dataRua);
+			
+			//$this->loadRua($dataRua,$dataPaletes);
 		}
 
 	}
