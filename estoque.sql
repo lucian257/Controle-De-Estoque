@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 28-Maio-2020 às 06:08
+-- Tempo de geração: 30-Maio-2020 às 18:07
 -- Versão do servidor: 10.4.11-MariaDB
--- versão do PHP: 7.4.2
+-- versão do PHP: 7.2.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -32,15 +31,17 @@ CREATE TABLE `tbl_paletes` (
   `id_palete` int(11) NOT NULL,
   `andar` int(2) NOT NULL,
   `coluna` int(11) NOT NULL,
-  `fk_id_rua` int(11) NOT NULL
+  `fk_id_rua` int(11) NOT NULL,
+  `celula` int(11) NOT NULL DEFAULT 0,
+  `vazio` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `tbl_paletes`
 --
 
-INSERT INTO `tbl_paletes` (`id_palete`, `andar`, `coluna`, `fk_id_rua`) VALUES
-(1, 5, 10, 1);
+INSERT INTO `tbl_paletes` (`id_palete`, `andar`, `coluna`, `fk_id_rua`, `celula`, `vazio`) VALUES
+(1, 5, 10, 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -96,20 +97,21 @@ CREATE TABLE `tbl_ruas` (
   `id_rua` int(11) NOT NULL,
   `letra` varchar(1) NOT NULL,
   `qtd_coluna` tinyint(4) NOT NULL,
-  `qtd_andar` tinyint(4) NOT NULL
+  `qtd_andar` tinyint(4) NOT NULL,
+  `qtd_celula` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `tbl_ruas`
 --
 
-INSERT INTO `tbl_ruas` (`id_rua`, `letra`, `qtd_coluna`, `qtd_andar`) VALUES
-(1, 'A', 12, 5),
-(2, 'B', 10, 5),
-(3, 'C', 10, 5),
-(4, 'D', 11, 5),
-(5, 'E', 11, 5),
-(6, 'F', 10, 5);
+INSERT INTO `tbl_ruas` (`id_rua`, `letra`, `qtd_coluna`, `qtd_andar`, `qtd_celula`) VALUES
+(1, 'A', 12, 5, 0),
+(2, 'B', 10, 5, 0),
+(3, 'C', 10, 5, 0),
+(4, 'D', 11, 5, 0),
+(5, 'E', 11, 5, 0),
+(6, 'F', 10, 5, 0);
 
 --
 -- Índices para tabelas despejadas
