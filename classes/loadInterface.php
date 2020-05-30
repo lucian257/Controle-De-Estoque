@@ -13,6 +13,8 @@ class loadInterface{
 	}
 	protected function loadRua($rua,$allPaletes){
 		//carrega todos os paletes de uma rua
+		echo "<pre>";
+		print_r($allPaletes);
 
 	}
 	protected function loadPalete(){

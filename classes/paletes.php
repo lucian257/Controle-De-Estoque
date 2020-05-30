@@ -16,13 +16,21 @@
 		}
 		public function loadAllPaletes($dados){
 			$dataRua = $dados[0];
+			$dataPaletes = [];
 			for ($i=0; $i < 6; $i++) { 
 				array_pop($dataRua);
 			}
+			foreach ($dados as $value) {
+				for($i=0; $i < 5; $i++){
+					array_shift($value);
+				}
+				array_push($dataPaletes, $value);
+			}
+
 			//echo "<pre>";
-			//print_r($dataRua);
+			//print_r($dataPaletes);
 			
-			//$this->loadRua($dataRua,$dataPaletes);
+			$this->loadRua($dataRua,$dataPaletes);
 		}
 
 	}
