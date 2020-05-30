@@ -1,7 +1,11 @@
 <?php 
 	require("config.php");
-	function carregarRua($id){
-		echo $id;
+	function carregarRua($rua){
+		$objPaletes = new paletes($PDO);
+		$objRuas = new ruas($PDO);
+		$idRua = $objRuas->getIdRua($rua);
+		$paletesRua = $objPaletes->getPaletesRua($idRua);
+		$objPaletes->loadAllPaletes($paletesRua);
 	}
 	function carregarRuas($id){
 		

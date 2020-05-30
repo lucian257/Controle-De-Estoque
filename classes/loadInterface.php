@@ -11,8 +11,9 @@ class loadInterface{
 			<br>
 		<?php }
 	}
-	protected function loadRua(){
+	protected function loadRua($rua,$allPaletes){
 		//carrega todos os paletes de uma rua
+
 	}
 	protected function loadPalete(){
 		//carrega todos os produtos de um patele
