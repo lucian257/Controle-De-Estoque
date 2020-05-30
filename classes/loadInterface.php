@@ -4,13 +4,13 @@ class loadInterface{
 
 	protected function loadAllRuas($letras){
 		//carrega todas as ruas
-				foreach ($letras as  $value) { ?>
-					<div class = "ruas">
-						<?php  echo "RUA ".$value; ?>
-					</div>
-					<br>
-			<?php } 
-		}
+		foreach ($letras as  $value) { ?>
+			<div class="ruas">
+				<?php  echo "RUA ".$value; ?>
+			</div>
+			<br>
+		<?php }
+	}
 	protected function loadRua(){
 		//carrega todos os paletes de uma rua
 	}

@@ -17,9 +17,9 @@
 	<img src="assets/images/return.png" alt="" width="50px" style= "margin:10px; display:none" id="retorno">
 	<div class="container">
 		<div id="credencial">
-		<input id="cod" type="text" value="teste" name="codigo" class="codigo">
-		<button id="enter">Entrar</button>
-	</div>
+			<input id="cod" type="text" value="teste" name="codigo" class="codigo">
+			<button id="enter">Entrar</button>
+		</div>
 
 		<!--        div         -->
 		<div id="corpo" class= "conteudo" style="display:none">

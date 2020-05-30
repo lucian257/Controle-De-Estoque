@@ -3,7 +3,7 @@ $j(document).ready(function(){ // carregar pagina primeiro
 
 	if (typeof localStorage.status =="undefined"){
 		$j("#corpo").css("display", "none");
-	 }else if (typeof localStorage.status == "ativo") {
+	 }else if (typeof localStorage.status) {
 	 	$j("#credencial").css("display", "none");
 		$j("#corpo").css("display", "");
 		
