@@ -16,11 +16,13 @@
 	
 	<img src="assets/images/return.png" alt="" width="50px" style= "margin:10px; display:none" id="retorno">
 	<div class="container">
+	<div id="div_inicial">
+	<h3 style="text-align:center;position:relative; top:40px;">Credencial</h3>
 		<div id="credencial">
-			<input id="cod" type="text" value="teste" name="codigo" class="codigo">
-			<button id="enter">Entrar</button>
+			<input id="cod" type="text" value="teste" name="codigo" class="codigo form-control" style="width:40%;">
+			<button id="enter" class="btn btn-sm">Entrar</button>
 		</div>
-
+		</div>
 		<!--        div         -->
 		<div id="corpo" class= "conteudo" style="display:none">
 			<!--
@@ -33,7 +35,7 @@
 
 			?>
 		</div>
-
+		
 	</div>
 
 	<script type="text/javascript" src="assets/js/jquery-3.5.1.min.js"></script>

@@ -19,8 +19,8 @@
 }
 .conteudo{
     width: 90%;
-    height: 800px;
-    background: #a5be00;
+    height: 400px;
+    background: #35e48c;
     margin: auto;
     position: relative;
     top: 50px;
@@ -62,36 +62,86 @@
 .ruas{
     background-color: ivory;
     height: 100px;
-    margin: 10px;
-    width: 700px;
+    margin: auto;
+    width: 50%;
     text-align: center;
     box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.2);
-    margin-left:100px; 
+    position: relative;
+    top: 50px;
 }
 
 .codigo{
-    width: 30%;
     height: 40px;
     position: relative;
-    top: 20px;
-    border-radius: 10px;
-    border: solid 2px #000080;
+    top: 60px;
+    border-radius: 20px;
+    border: solid 1px #cecece;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2), inset 5px 5px 5px (rgba(34, 16, 99, 1));
     outline: 0;
-    background: #f0fff0;
+    background: #cccecc;
     color: #1c1c1c;
     font-family: 'tahoma';
-
+    margin: auto;
 }
+
+
 
 #enter{
     position: relative;
-    top: 20px;
-    background-color: royalblue;
-    border: solid 2px #023e7d;
+    top: 70px;
+    background-color: rgb(68, 216, 147);
+    border: solid 1px #0a742d;
+    box-shadow:0px 3px 8px #0a742d;
     border-radius: 10px;
     width: 100px;
     height: 40px;
     font-size: 20px;
-
+    left: 42%;
+    
 }
+
+
+#div_inicial{
+    width: 50%;
+    height: 400px;
+    background: linear-gradient(90deg, rgba(65, 105, 225, 1) 38%, rgb(34, 90, 173) 100%);
+    margin: auto;
+    position: relative;
+    top: 30px;
+    box-shadow: 7px 8px 6px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width:767px){
+    #div_inicial{
+        width: 100%;
+    }
+    #enter{
+        width:80px;
+        height: 30px;
+        font-size: 15px;
+        left: 40%;
+    }
+
+    .ruas{
+        max-width: 50%;
+        margin:auto;
+        position: relative;
+        top: 50px;
+    }
+}
+
+@media (min-width:767px) and (max-width:1024px){
+    #div_inicial{
+        width: 100%;
+    }
+    #enter{
+        left: 43%;
+    }
+}
+
+@media (max-width: 325px){
+    #enter{
+        left:37%;
+    }
+}
+
