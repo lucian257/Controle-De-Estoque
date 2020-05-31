@@ -87,5 +87,23 @@ $j(document).ready(function(){ // carregar pagina primeiro
 		});
 	});
 
+	$j('.tbl_paletes td').bind("click",function(){
+		var id = $j(this).attr("id");
+		if(id != "cancel"){
+			$j.ajax({
+			type:'POST',
+			url:'script.php',
+			data:"funcao=carregarPalete&id="+id,
+			success:function(resp){
+				$j('#corpo').html(resp);
+			},
+			error:function(){
+				console.log("error no ajax");
+			}
+			});
+		}
+		
+	});
+
 
 });
