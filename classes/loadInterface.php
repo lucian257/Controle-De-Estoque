@@ -15,15 +15,13 @@ class loadInterface{
 		//carrega todos os paletes de uma rua
 		//echo "<pre>";
 		//print_r($allPaletes);
-
-		echo "<div id='paletes' style=''>"; // div que os paletes ficam 
-
+		echo "<table >";
 		$andar = $rua["qtd_andar"];
 		$coluna = $rua["qtd_coluna"];
 		$grupoCelula = [];
 		$x = "15px;";
 		for ($i=$andar; $i >= 1; $i--) {
-			echo "<br>";
+			echo "<tr style='border:1px black solid'>";
 			for ($n=1; $n <= $coluna; $n++) { 
 				$id = 0;
 				foreach ($allPaletes as $key => $value) {
@@ -36,17 +34,17 @@ class loadInterface{
 
 				if ($id == 0) {
 					// criar html do palete vazio
-					echo "<button>$i - $n</button>";
+					echo "<td style='border:1px black solid'>$i - $n</td>";
 				}else{
-					// se existir 
+					
 
 					if ($allPaletes[$id_array]["vazio"] == 1) {
 						// html do palete inexistente
-						echo "<button style='background:transparent'>hhhh</button>";
+						echo "<td>&nbsp;</td>";
 					}else{
 						if ($allPaletes[$id_array]["celula"] == 0) {
 							// monta O HTML MESMO do bang uffa
-							echo "<button>$i - $n</button>";
+							echo "<td style='border:1px black solid'>$i - $n</td>";
 						}else{
 							if (!in_array($allPaletes[$id_array]["celula"], $grupoCelula)) {
 								// trotos
@@ -75,8 +73,9 @@ class loadInterface{
 									
 									}
 								}
-
-								echo "<button style='width:50px; height:30px; position:relative;'>R$....g</button>";
+								$colM=($colunaMax-$colunaMin)+1;
+								$andM=($andarMax-$andarMin)+1;
+								echo "<td style='border:1px black solid' colspan='$colM' rowspan='$andM'>$i - $n</td>";
 
 							}
 						}
@@ -84,9 +83,9 @@ class loadInterface{
 					}
 				}
 			}
+			echo "</tr>";
 		}
-		echo "</div>";
-
+		echo "</table>";
 	}
 	protected function loadPalete(){
 		//carrega todos os produtos de um patele
