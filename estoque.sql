@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 30-Maio-2020 às 18:07
+-- Tempo de geração: 31-Maio-2020 às 17:49
 -- Versão do servidor: 10.4.11-MariaDB
 -- versão do PHP: 7.2.31
 
@@ -41,7 +41,19 @@ CREATE TABLE `tbl_paletes` (
 --
 
 INSERT INTO `tbl_paletes` (`id_palete`, `andar`, `coluna`, `fk_id_rua`, `celula`, `vazio`) VALUES
-(1, 5, 10, 1, 0, 0);
+(1, 5, 10, 1, 0, 0),
+(2, 1, 1, 1, 1, 0),
+(3, 1, 2, 1, 1, 0),
+(4, 2, 1, 1, 0, 0),
+(5, 3, 1, 2, 0, 0),
+(6, 1, 7, 1, 0, 1),
+(7, 2, 7, 1, 0, 1),
+(8, 3, 8, 3, 0, 1),
+(9, 4, 8, 3, 0, 1),
+(10, 3, 3, 1, 2, 0),
+(11, 4, 4, 1, 2, 0),
+(12, 3, 4, 1, 2, 0),
+(13, 4, 3, 1, 2, 0);
 
 -- --------------------------------------------------------
 
@@ -106,7 +118,7 @@ CREATE TABLE `tbl_ruas` (
 --
 
 INSERT INTO `tbl_ruas` (`id_rua`, `letra`, `qtd_coluna`, `qtd_andar`, `qtd_celula`) VALUES
-(1, 'A', 12, 5, 0),
+(1, 'A', 12, 5, 1),
 (2, 'B', 10, 5, 0),
 (3, 'C', 10, 5, 0),
 (4, 'D', 11, 5, 0),
@@ -152,7 +164,7 @@ ALTER TABLE `tbl_ruas`
 -- AUTO_INCREMENT de tabela `tbl_paletes`
 --
 ALTER TABLE `tbl_paletes`
-  MODIFY `id_palete` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_palete` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de tabela `tbl_produtos`

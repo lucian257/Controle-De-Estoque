@@ -5,7 +5,8 @@
 		$objRuas = new ruas($PDO);
 		$idRua = $objRuas->getIdRua($rua);
 		$paletesRua = $objPaletes->getPaletesRua($idRua);
-		$objPaletes->loadAllPaletes($paletesRua);
+		$auxRuas= $objRuas->getDataRua($rua);
+		$objPaletes->loadAllPaletes($paletesRua,$auxRuas);
 	}
 	function carregarRuas($PDO){
 		$objRuas = new ruas($PDO);
