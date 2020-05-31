@@ -4,7 +4,7 @@
 
 		public function __CONSTRUCT($bd){
 			$this->PDO = $bd;
-			//carregar e guarda dados da tabela ruas em $dadosRua
+			//carregar e guarda dados da tabela ruas em $dadosRuas
 			$sql = $this->PDO->query("SELECT * FROM tbl_ruas");
 			$this->dadosRuas = $sql->fetchALL(PDO::FETCH_ASSOC);
 		}
@@ -27,6 +27,11 @@
 			$letrasAll = $this->getLetras(); 
 			$id = array_search($rua, $letrasAll);
 			return $this->dadosRuas[$id]["qtd_andar"];
+		}
+		public function getIdRua($rua){
+			$letrasAll = $this->getLetras(); 
+			$id = array_search($rua, $letrasAll);
+			return $this->dadosRuas[$id]["id_rua"];
 		}
 		public function loadALL(){
 			$letras = $this->getLetras();

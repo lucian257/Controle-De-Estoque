@@ -16,19 +16,21 @@
 	
 	<img src="assets/images/return.png" alt="" width="50px" style= "margin:10px; display:none" id="retorno">
 	<div class="container">
-	<div id="div_inicial">
+	<div id="div_inicial" style="display: none;">
 	<h3 style="text-align:center;position:relative; top:40px;">Credencial</h3>
 		<div id="credencial">
 			<input id="cod" type="text" value="teste" name="codigo" class="codigo form-control" style="width:40%;">
 			<button id="enter" class="btn btn-sm">Entrar</button>
 		</div>
 		</div>
-		<!--        div         -->
-		<div id="corpo" class= "conteudo" style="display:none">
-			<!--
+
+		<div id="pesquisa" style="display: none;">
 			<input type='text' placeholder='Ex: UN43NU7100AG' class='pesquisar'>
 			<input type='submit' value='Procurar' class = 'botao' >	
-			-->
+		</div>
+		<!--        div         -->
+		<div id="corpo" class= "conteudo" style="display:none">
+			
 			<?php 	
 				$ruas = new ruas($PDO); 
 				$ruas->loadALL();
