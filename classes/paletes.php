@@ -15,21 +15,26 @@
 			$dadosAll = $sql->fetchALL(PDO::FETCH_ASSOC);
 			return $dadosAll;
 		}
-		public function loadAllPaletes($dados){
-			$dataRua = $dados[0];
+		public function loadAllPaletes($dados, $auxRuas){
 			$dataPaletes = [];
-			for ($i=0; $i < 6; $i++) { 
-				array_pop($dataRua);
-			}
-			foreach ($dados as $value) {
-				for($i=0; $i < 5; $i++){
-					array_shift($value);
+			if(isset($dados[0])){
+				$dataRua = $dados[0];
+				for ($i=0; $i < 6; $i++) { 
+					array_pop($dataRua);
 				}
-				array_push($dataPaletes, $value);
+				foreach ($dados as $value) {
+					for($i=0; $i < 5; $i++){
+						array_shift($value);
+					}
+					array_push($dataPaletes, $value);
+				}
+			}else{
+				$dataRua=$auxRuas;
 			}
+			
 
 			//echo "<pre>";
-			//print_r($dataPaletes);
+			//print_r($dataRua);
 			
 			$this->loadRua($dataRua,$dataPaletes);
 		}

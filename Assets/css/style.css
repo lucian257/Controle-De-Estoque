@@ -131,6 +131,25 @@
     }
 }
 
+.tbl_paletes{
+    text-align: center;
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+
+.tbl_paletes td{
+    background: ivory;
+    width: 10px;
+}
+
+
+.tbl_paletes td:hover{
+    background: #023e7d;
+    color: white;
+    
+}
+
+
 @media (min-width:767px) and (max-width:1024px){
     #div_inicial{
         width: 100%;

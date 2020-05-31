@@ -33,6 +33,11 @@
 			$id = array_search($rua, $letrasAll);
 			return $this->dadosRuas[$id]["id_rua"];
 		}
+		public function getDataRua($rua){ 
+			$letrasAll = $this->getLetras(); 
+			$id = array_search($rua, $letrasAll);
+			return $this->dadosRuas[$id];
+		}
 		public function loadALL(){
 			$letras = $this->getLetras();
 			$this->loadAllRuas($letras);
