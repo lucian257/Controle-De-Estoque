@@ -20,14 +20,37 @@
 .conteudo{
     width: 90%;
     height: 400px;
-    background: #35e48c;
+    background: #0d1c30;
     margin: auto;
     position: relative;
     top: 50px;
-    border: solid 3px #758605;
-    box-shadow: inset 7px 7px 6px #ffffff,10px 7px 5px #999999;
-    border-radius: 20px;
+    box-shadow:10px 7px 5px #999999;
     overflow-y:scroll;
+    scroll-behavior: smooth;
+    -webkit-scrollbar-button:#000;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+/* Fundo da barra de rolagem */
+::-webkit-scrollbar-track-piece {
+    background-color: #EEE;
+    border-left: 1px solid #CCC
+}
+
+/* Cor do indicador de rolagem */
+::-webkit-scrollbar-thumb:vertical,
+::-webkit-scrollbar-thumb:horizontal {
+    background-color: #999999;
+}
+
+/* Cor do indicador de rolagem - ao passar o mouse */
+::-webkit-scrollbar-thumb:vertical:hover,
+::-webkit-scrollbar-thumb:horizontal:hover {
+    background-color: #3dc3f2;
+    margin: auto;
 }
 
 
@@ -111,9 +134,37 @@
     box-shadow: 7px 8px 6px rgba(0, 0, 0, 0.4);
 }
 
+.tbl_paletes{
+    text-align: center;
+    border-collapse: separate;
+    border-spacing: 10px;
+    position: relative;
+    top: 50px;
+    border: 0;
+    margin: auto;
+    
+}
+
+.tbl_paletes td{
+    background: #3dc3f2;
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.2);
+    border: 0;
+    
+}
+
+
+.tbl_paletes td:hover{
+    background: #023e7d;
+    color: white;
+    transition: all ease-in 0.1s;
+    cursor: pointer;
+    
+}
+
 @media (max-width:767px){
     #div_inicial{
         width: 100%;
+        
     }
     #enter{
         width:80px;
@@ -129,28 +180,12 @@
         top: 50px;
         
     }
+
+    .tbl_paletes td{
+       min-width: 70px;
 }
 
-.tbl_paletes{
-    text-align: center;
-    border-collapse: separate;
-    border-spacing: 10px;
-}
-
-.tbl_paletes td{
-    background: ivory;
-    width: 10px;
-}
-
-
-.tbl_paletes td:hover{
-    background: #023e7d;
-    color: white;
-    
-}
-
-
-@media (min-width:767px) and (max-width:1024px){
+@media (min-width:768px) and (max-width:1024px){
     #div_inicial{
         width: 100%;
     }

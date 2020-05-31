@@ -15,7 +15,7 @@ class loadInterface{
 		//carrega todos os paletes de uma rua
 		//echo "<pre>";
 		//print_r($allPaletes);
-		echo "<table class='table table-bordered tbl_paletes'>";
+		echo "<table class='table tbl_paletes'>";
 		$andar = $rua["qtd_andar"];
 		$coluna = $rua["qtd_coluna"];
 		$grupoCelula = [];
@@ -39,7 +39,7 @@ class loadInterface{
 
 					if ($allPaletes[$id_array]["vazio"] == 1) {
 						//PALETE INEXITENTE
-						echo "<td>&nbsp;</td>";
+						echo "<td style='background:transparent; box-shadow:0px 0px; border: 0px'>&nbsp;</td>";
 					}else{
 						if ($allPaletes[$id_array]["celula"] == 0) {
 							//PALETE COM PRODUTOS
