@@ -24,7 +24,7 @@ class loadInterface{
 			echo "<tr>";
 			for ($n=1; $n <= $coluna; $n++) { 
 				if($n == 1){
-					echo "<td id='cancel'> coluna $i </td>";
+					echo "<td id='cancel'> Andar $i </td>";
 				
 				 }
 				
@@ -88,6 +88,18 @@ class loadInterface{
 			}
 			echo "</tr>";
 		}
+		echo "<tr>";
+		for ($i=1; $i <= $coluna ; $i++) { 
+			if($i == 1){
+					echo "<td id='cancel'>&nbsp;</td>";
+				}
+			?>
+				<td id='cancel'>
+					coluna <?php echo $i; ?>
+				</td>
+			
+		<?php }
+		echo "</tr>";
 		echo "</table>";
 	}
 	protected function loadPalete($allProdutos){ 
