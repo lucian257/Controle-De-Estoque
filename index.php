@@ -25,7 +25,7 @@
 		</div>
 
 		<div id="pesquisa" style="display: none;">
-			<input type='text' placeholder='Ex: UN43NU7100AG' class='pesquisar'>
+			<input type='text' placeholder ='Ex: UN43NU7100AG' class='pesquisar'>
 			<input type='submit' value='Procurar' class = 'botao' >	
 		</div>
 		<!--        div         -->

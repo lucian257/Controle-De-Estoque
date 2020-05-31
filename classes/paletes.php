@@ -1,3 +1,4 @@
+
 <?php 
 	class paletes extends loadInterface{
 		private $dadosPaletes=[];
