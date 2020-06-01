@@ -10,7 +10,7 @@
 	}
 	function carregarRuas($PDO){
 		$objRuas = new ruas($PDO);
-		$objruas->loadAll();
+		$objRuas->loadAll();
 	}
 	function carregarPalete($id,$PDO){
 		$objProdutos = new produtos($PDO);

@@ -62,22 +62,9 @@ $j(document).ready(function(){ // carregar pagina primeiro
 		var dados="funcao=carregarRua&letra="+letra;
 		$j.ajax({
 			type:'POST',
+			async: false,
 			url:'script.php',
 			data:dados,
-			success:function(resp){
-				$j('#corpo').html(resp);
-			},
-			error:function(){
-				console.log("error no ajax");
-			}
-		});
-	});
-	$j('#btnVoltar').bind('click',function(){
-		alert("ceeerto");
-		$j.ajax({
-			type:'POST',
-			url:'script.php',
-			data:"funcao=carregarRuas",
 			success:function(resp){
 				$j('#corpo').html(resp);
 			},
@@ -92,6 +79,7 @@ $j(document).ready(function(){ // carregar pagina primeiro
 		if(id != "cancel"){
 			$j.ajax({
 			type:'POST',
+			async: false,
 			url:'script.php',
 			data:"funcao=carregarPalete&id="+id,
 			success:function(resp){
@@ -103,6 +91,21 @@ $j(document).ready(function(){ // carregar pagina primeiro
 			});
 		}
 		
+	});
+
+	$j('#voltar').bind("click",function(){
+			$j.ajax({
+			type:'POST',
+			async: false,
+			url:'script.php',
+			data:"funcao=carregarRuas",
+			success:function(resp){
+				$j('#corpo').html(resp);
+			},
+			error:function(){
+				console.log("error no ajax");
+			}
+			});
 	});
 
 
