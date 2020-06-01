@@ -24,7 +24,6 @@ $j(document).ready(function(){ // carregar pagina primeiro
 	 }
 
 	$j("#cod").keydown(function(event){ // Entrar apertando enter
-
 	 	var tecla = event.keyCode;
 	 	var text = $j('#cod').val();	
 	 	if (tecla == 13 && text == "teste") {
@@ -57,11 +56,12 @@ $j(document).ready(function(){ // carregar pagina primeiro
 		window.location.href = window.location.href;
 		
 	})
-	$j(".ruas").bind('click',function(){
+	$j("#corpo").on('click',".ruas",function(){
 		var letra = $j(this).attr('id');
 		var dados="funcao=carregarRua&letra="+letra;
 		$j.ajax({
 			type:'POST',
+			dataType:"html",
 			async: false,
 			url:'script.php',
 			data:dados,
@@ -74,16 +74,18 @@ $j(document).ready(function(){ // carregar pagina primeiro
 		});
 	});
 
-	$j('.tbl_paletes td').bind("click",function(){
+	$j('#corpo').on("click",".tbl_paletes td",function(){
 		var id = $j(this).attr("id");
 		if(id != "cancel"){
 			$j.ajax({
 			type:'POST',
+			dataType:"html",
 			async: false,
 			url:'script.php',
 			data:"funcao=carregarPalete&id="+id,
 			success:function(resp){
 				$j('#corpo').html(resp);
+				
 			},
 			error:function(){
 				console.log("error no ajax");
@@ -92,20 +94,28 @@ $j(document).ready(function(){ // carregar pagina primeiro
 		}
 		
 	});
-
-	$j('#voltar').bind("click",function(){
+	
+	$j('#voltar').on("click",function(){
+		var botao = $j(this);
 			$j.ajax({
 			type:'POST',
+			dataType:"html",
 			async: false,
 			url:'script.php',
 			data:"funcao=carregarRuas",
 			success:function(resp){
 				$j('#corpo').html(resp);
+
 			},
 			error:function(){
 				console.log("error no ajax");
 			}
 			});
+		
+	});
+	$j('#corpo').on("click","#btnAddProd",function(){
+		var form = $j(this).parent();
+		//console.log(form);
 	});
 
 

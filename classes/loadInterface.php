@@ -102,7 +102,7 @@ class loadInterface{
 		echo "</tr>";
 		echo "</table>";
 	}
-	protected function loadPalete($allProdutos){ 
+	protected function loadPalete($allProdutos,$idPalete){ 
 		//carrega todos os produtos de um patele
 		//echo "<pre>";
 		//echo print_r($allProdutos);
@@ -147,5 +147,3 @@ class="w3-btn w3-ripple w3-green">Adicionar produto</button>
 	}
 }
 ?>
-<script type="text/javascript" src="assets/js/jquery-3.5.1.min.js"></script>
-<script type="text/javascript" src="assets/js/script.js"></script>

@@ -21,7 +21,7 @@ class produtos extends loadInterface{
 	}
 	public function loadProdutos($idPalete){
 		$produtos = $this->getProdutos($idPalete);
-		$this->loadPalete($produtos);
+		$this->loadPalete($produtos,$idPalete);
 	}
 }
 ?>
