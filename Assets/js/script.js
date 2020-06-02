@@ -191,5 +191,27 @@ $j(document).ready(function(){ // carregar pagina primeiro
 		
 	});
 
+	$j("#corpo").on("click", "#Alterar",function(){
+		var form = $j(this).parent();
+		var dados = form.serialize();
+		dados +="&id="+form.prop("id");
+		dados +="&funcao=alteraProduto"; 
+		//var id = $j(this).parent().parent().prop("id");
+		$j.ajax({
+				type:'POST',
+				dataType:"html",
+				async: false,
+				url:'script.php',
+				data:dados,
+				success:function(resp){
+					$j('#corpo').html(resp);
+				},
+				error:function(){
+					console.log("error no ajax");
+				}
+			});
+		
+	});
+
 
 });

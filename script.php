@@ -67,6 +67,18 @@
 		$objProdutos->deletaProdutos($idProd);
 		carregarPalete($_SESSION['id_palete'],$PDO);
 	}
+	function alteraProd($PDO){
+		$nome = filter_input(INPUT_POST, 'nome_txt', FILTER_SANITIZE_STRING);
+		$marca = filter_input(INPUT_POST, 'marca_slc', FILTER_SANITIZE_STRING);
+		$categoria = filter_input(INPUT_POST, 'categoria_slc', FILTER_SANITIZE_STRING);
+		$status = filter_input(INPUT_POST, 'status', FILTER_SANITIZE_NUMBER_INT);
+		$qtd = filter_input(INPUT_POST, 'qtd_txt', FILTER_SANITIZE_NUMBER_INT);
+		$idProd = $_POST['id'];
+		
+		$objProdutos= new produtos($PDO);
+		$objProdutos->alteraProdutos($idProd, $nome, $marca, $estado, $categoria, $status, $qtd, $idPalete);
+		carregarPalete($_SESSION['id_palete'],$PDO);
+	}
 
 	if (isset($_POST['funcao']) && $_POST['funcao']!= NULL) {
 		if ($_POST['funcao']=="carregarRua"){

@@ -34,6 +34,11 @@ class produtos extends loadInterface{
 		$sql = $this->PDO->query("INSERT INTO tbl_produtos(nome, marca, estado, categoria, status, quantidade, fk_id_palete) VALUES ('$nome','$marca', '$sqlestado', '$categoria', $status, $qtd, $idPalete)");
 	}
 
+	public function alteraProduto($id, $nome,$marca,$estado,$categoria,$status,$qtd,$idPalete){
+		$sqlestado = implode("/", $estado);
+		$sql = $this->PDO->query("UPDATE tbl_produtos SET nome=$nome, marca=$marca,estado=estado, categoria=$categoria, quantidade=$qtd,status=$status,fk_id_palete=$idPalete WHERE id_produto = $id");
+	}
+
 	public function loadProdutos($idPalete){
 		$produtos = $this->getProdutos($idPalete);
 		$this->loadPalete($produtos,$idPalete);

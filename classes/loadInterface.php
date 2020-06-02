@@ -135,7 +135,7 @@ class="w3-btn w3-ripple w3-green">Adicionar novo produto</button>
 				<td>
 					<button id="btnEntrada">Entrada</button>
 					<button id="btnSaida">Saída</button>
-					<button>Alterar</button>
+					<button onclick="document.getElementById('id02').style.display='block'" id="btnAlterar">Alterar</button>
 					<button id="btnDeleta">Deletar</button>
 				<td>
 			<tr>
