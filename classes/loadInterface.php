@@ -38,7 +38,8 @@ class loadInterface{
 				}
 				if($id == 0){
 					//PALETE SEM ITENS
-					echo "<td id='v$virtual' >$i - $n</td>";
+					echo "<td id='v$virtual?$i:$n' >$i - $n</td>";
+
 					$virtual++;
 				}else{
 					if ($allPaletes[$id_array]["vazio"] == 1) {
@@ -109,7 +110,7 @@ class loadInterface{
 		include("include/modalProdutos.php");
 		?>
 		<button onclick="document.getElementById('id01').style.display='block'"
-class="w3-btn w3-ripple w3-green">Adicionar produto</button>
+class="w3-btn w3-ripple w3-green">Adicionar novo produto</button>
 		<?php
 		echo "
 		<table class='tbl_produtos'>
@@ -124,7 +125,7 @@ class="w3-btn w3-ripple w3-green">Adicionar produto</button>
 	  		</tr>
 		";
 		foreach ($allProdutos as $value){ ?>
-			<tr>
+			<tr id="<?php echo $value['id_produto']; ?>">
 				<td><?php echo $value['nome']; ?><td>
 				<td><?php echo ($value['marca']==NULL?"Sem Marca":$value['marca']); ?><td>
 				<td><?php echo ($value['categoria']==NULL?"Indefinida":$value['categoria']); ?><td>
@@ -132,10 +133,10 @@ class="w3-btn w3-ripple w3-green">Adicionar produto</button>
 				<td><?php echo $value['quantidade']; ?><td>
 				<td><?php echo $value['status']; ?><td>
 				<td>
-					<button>Entrada</button>
-					<button>Saída</button>
+					<button id="btnEntrada">Entrada</button>
+					<button id="btnSaida">Saída</button>
 					<button>Alterar</button>
-					<button>Deletar</button>
+					<button id="btnDeleta">Deletar</button>
 				<td>
 			<tr>
 		<?php }

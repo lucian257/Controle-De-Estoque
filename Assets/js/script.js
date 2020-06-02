@@ -110,12 +110,85 @@ $j(document).ready(function(){ // carregar pagina primeiro
 			error:function(){
 				console.log("error no ajax");
 			}
-			});
+		});
 		
 	});
 	$j('#corpo').on("click","#btnAddProd",function(){
 		var form = $j(this).parent();
-		//console.log(form);
+		var dados = form.serialize();
+		dados +="&id="+form.prop("id");
+		dados +="&funcao=addProduto"; 
+		console.log(dados);
+		$j.ajax({
+			type:'POST',
+			dataType:"html",
+			async: false,
+			url:'script.php',
+			data:dados,
+			success:function(resp){
+				$j('#corpo').html(resp);
+
+			},
+			error:function(){
+				console.log("error no ajax");
+			}
+		});
+	});
+	$j("#corpo").on("click", "#btnEntrada",function(){
+		var valor = prompt("Quantidade de entrada:");
+		var id = $j(this).parent().parent().prop("id");
+		$j.ajax({
+			type:'POST',
+			dataType:"html",
+			async: false,
+			url:'script.php',
+			data:"funcao=entrada&id="+id+"&qtd="+valor,
+			success:function(resp){
+				$j('#corpo').html(resp);
+
+			},
+			error:function(){
+				console.log("error no ajax");
+			}
+		});
+	});
+	$j("#corpo").on("click", "#btnSaida",function(){
+		var valor = prompt("Quantidade de saída:");
+
+		var id = $j(this).parent().parent().prop("id");
+		$j.ajax({
+			type:'POST',
+			dataType:"html",
+			async: false,
+			url:'script.php',
+			data:"funcao=saida&id="+id+"&qtd="+valor,
+			success:function(resp){
+				$j('#corpo').html(resp);
+			},
+			error:function(){
+				console.log("error no ajax");
+			}
+		});
+	});
+	$j("#corpo").on("click", "#btnDeleta",function(){
+		var valor = confirm("Deseja deletar?");
+		if (valor) {
+			var id = $j(this).parent().parent().prop("id");
+			$j.ajax({
+				type:'POST',
+				dataType:"html",
+				async: false,
+				url:'script.php',
+				data:"funcao=deleta&id="+id,
+				success:function(resp){
+					$j('#corpo').html(resp);
+				},
+				error:function(){
+					console.log("error no ajax");
+				}
+			});
+		}
+		
 	});
 
 

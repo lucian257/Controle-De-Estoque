@@ -19,6 +19,21 @@ class produtos extends loadInterface{
 		 return $arrayProd;
 
 	}
+	public function entradaProdutos($id,$qtd){
+		$sql = $this->PDO->query("UPDATE tbl_produtos SET quantidade=quantidade+$qtd WHERE id_produto=$id");
+	}
+	public function saidaProdutos($id,$qtd){
+		$sql = $this->PDO->query("UPDATE tbl_produtos SET quantidade=quantidade-$qtd WHERE id_produto=$id");
+	}
+	public function deletaProdutos($id){
+		$sql = $this->PDO->query("DELETE FROM tbl_produtos WHERE id_produto = $id");
+	}
+
+	public function addNewProduto($nome,$marca,$estado,$categoria,$status,$qtd,$idPalete){
+		$sqlestado = implode("/", $estado);
+		$sql = $this->PDO->query("INSERT INTO tbl_produtos(nome, marca, estado, categoria, status, quantidade, fk_id_palete) VALUES ('$nome','$marca', '$sqlestado', '$categoria', $status, $qtd, $idPalete)");
+	}
+
 	public function loadProdutos($idPalete){
 		$produtos = $this->getProdutos($idPalete);
 		$this->loadPalete($produtos,$idPalete);

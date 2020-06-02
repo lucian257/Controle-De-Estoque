@@ -14,5 +14,6 @@
 		echo "erro: ".$e->getMessage();
 		exit;
 	}
+	session_start();
 
 ?>

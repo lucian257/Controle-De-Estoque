@@ -15,6 +15,12 @@
 			$dadosAll = $sql->fetchALL(PDO::FETCH_ASSOC);
 			return $dadosAll;
 		}
+		public function setPalete($andar,$coluna,$idRua){
+			// Pega todos os paletes cadastrados de uma rua junto com os dados da rua
+			$sql = $this->PDO->query("INSERT INTO tbl_paletes (andar, coluna, fk_id_rua, celula, vazio) VALUES ($andar,$coluna,$idRua,0,0)");
+
+			return $this->PDO->lastInsertId();
+		}
 		public function loadAllPaletes($dados, $auxRuas){
 			$dataPaletes = [];
 			if(isset($dados[0])){
