@@ -107,7 +107,7 @@ class loadInterface{
 		//carrega todos os produtos de um patele
 		//echo "<pre>";
 		//echo print_r($allProdutos);
-		include("include/modalProdutos.php");
+		include("include/modalAddProdutos.php");
 		?>
 		<button onclick="document.getElementById('id01').style.display='block'"
 class="w3-btn w3-ripple w3-green">Adicionar novo produto</button>
@@ -124,18 +124,24 @@ class="w3-btn w3-ripple w3-green">Adicionar novo produto</button>
 	    		<th>Ação</th>
 	  		</tr>
 		";
-		foreach ($allProdutos as $value){ ?>
+		foreach ($allProdutos as $value){ 
+			$estado_formatado = str_replace("_", " ", $value['estado']);
+            $estados = explode("/", $estado_formatado);
+            $categoria_formatado = str_replace("_", " ", $value['categoria']);
+			include("include/modalAltProdutos.php");
+			
+			?>
 			<tr id="<?php echo $value['id_produto']; ?>">
 				<td><?php echo $value['nome']; ?><td>
 				<td><?php echo ($value['marca']==NULL?"Sem Marca":$value['marca']); ?><td>
-				<td><?php echo ($value['categoria']==NULL?"Indefinida":$value['categoria']); ?><td>
-				<td><?php echo ($value['estado']==NULL?"Indefinido":$value['estado']); ?><td>
+				<td><?php echo ($categoria_formatado==NULL?"Indefinida":$categoria_formatado); ?><td>
+				<td><?php echo ($estado_formatado==NULL?"Indefinido":$estado_formatado); ?><td>
 				<td><?php echo $value['quantidade']; ?><td>
 				<td><?php echo $value['status']; ?><td>
 				<td>
 					<button id="btnEntrada">Entrada</button>
 					<button id="btnSaida">Saída</button>
-					<button onclick="document.getElementById('id02').style.display='block'" id="btnAlterar">Alterar</button>
+					<button onclick="document.getElementById('id<?php echo $value['id_produto']; ?>').style.display='block'" id="btnAlterar">Alterar</button>
 					<button id="btnDeleta">Deletar</button>
 				<td>
 			<tr>
@@ -143,8 +149,8 @@ class="w3-btn w3-ripple w3-green">Adicionar novo produto</button>
 
 		echo "</table>";
 	}
-	protected function loadProduct(){
-		//carrega todos os dados de um produto
+	protected function loadPesquisa(){
+		//carrega pesquisa
 	}
 }
 ?>

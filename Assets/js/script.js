@@ -116,7 +116,9 @@ $j(document).ready(function(){ // carregar pagina primeiro
 	$j('#corpo').on("click","#btnAddProd",function(){
 		var form = $j(this).parent();
 		var dados = form.serialize();
-		dados +="&id="+form.prop("id");
+		console.log(form);
+		
+		dados +="&id="+form.prop("id").substr(3);;
 		dados +="&funcao=addProduto"; 
 		console.log(dados);
 		$j.ajax({
@@ -137,6 +139,7 @@ $j(document).ready(function(){ // carregar pagina primeiro
 	$j("#corpo").on("click", "#btnEntrada",function(){
 		var valor = prompt("Quantidade de entrada:");
 		var id = $j(this).parent().parent().prop("id");
+		id.substr(3);
 		$j.ajax({
 			type:'POST',
 			dataType:"html",
@@ -156,6 +159,7 @@ $j(document).ready(function(){ // carregar pagina primeiro
 		var valor = prompt("Quantidade de saída:");
 
 		var id = $j(this).parent().parent().prop("id");
+		id.substr(3);
 		$j.ajax({
 			type:'POST',
 			dataType:"html",
@@ -174,6 +178,7 @@ $j(document).ready(function(){ // carregar pagina primeiro
 		var valor = confirm("Deseja deletar?");
 		if (valor) {
 			var id = $j(this).parent().parent().prop("id");
+			id.substr(3);
 			$j.ajax({
 				type:'POST',
 				dataType:"html",
@@ -191,9 +196,14 @@ $j(document).ready(function(){ // carregar pagina primeiro
 		
 	});
 
-	$j("#corpo").on("click", "#Alterar",function(){
+	$j("#corpo").on("click", ".btnConfirmAlt",function(){
 		var form = $j(this).parent();
 		var dados = form.serialize();
+		console.log(dados);
+		/*var form = $j(this).parent().find("form");
+		var dados = form.serialize();
+		console.log(form);
+		
 		dados +="&id="+form.prop("id");
 		dados +="&funcao=alteraProduto"; 
 		//var id = $j(this).parent().parent().prop("id");
@@ -209,7 +219,7 @@ $j(document).ready(function(){ // carregar pagina primeiro
 				error:function(){
 					console.log("error no ajax");
 				}
-			});
+			});*/
 		
 	});
 

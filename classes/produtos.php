@@ -26,7 +26,9 @@ class produtos extends loadInterface{
 		$sql = $this->PDO->query("UPDATE tbl_produtos SET quantidade=quantidade-$qtd WHERE id_produto=$id");
 	}
 	public function deletaProdutos($id){
+		$this->PDO->query("SET foreign_key_checks = 0");
 		$sql = $this->PDO->query("DELETE FROM tbl_produtos WHERE id_produto = $id");
+		$this->PDO->query("SET foreign_key_checks = 1");
 	}
 
 	public function addNewProduto($nome,$marca,$estado,$categoria,$status,$qtd,$idPalete){
