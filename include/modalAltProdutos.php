@@ -1,14 +1,16 @@
 <div id="id<?php echo $value['id_produto']; ?>" class="w3-modal">
-  <div class="w3-modal-content"> <!-- modal alterar produto -->
-    <div class="w3-container">
+  <div class="w3-modal-content w3-animate-zoom modal-sm"> <!-- modal alterar produto -->
+    <div class="w3-container modall">
       <span onclick="document.getElementById('id<?php echo $value['id_produto']; ?>').style.display='none'"
       class="w3-button w3-display-topright">&times;</span>
-      <form class="alterar_prod" id="alt<?php echo $value['id_produto'];?>" >
+      <form class="alterar_prod form-group" id="alt<?php echo $value['id_produto'];?>" style="margin-top:350px;">
+          <div class="form-group">
             <label>Nome</label>
-            <input type="text" name="nome_txt" placeholder="LN39G" value="<?php echo $value['nome']; ?>" required="required">
+            <input type="text" name="nome_txt" placeholder="LN39G" value="<?php echo $value['nome']; ?>" required="required" class="form-control">
+          </div>
             <br>
             <label>Marca</label>
-            <select name="marca_slc">
+            <select name="marca_slc" class="form-control">
                 <option value="null" <?php echo ($value['marca']==NULL?"selected":""); ?> >Nenhuma</option> 
                 <option value="LG" <?php echo ($value['marca']=="LG"?"selected":""); ?> >LG</option>
                 <option value="Samsung" <?php echo ($value['marca']=="Samsung"?"selected":""); ?> >Samsung</option>
@@ -23,13 +25,34 @@
             </select>
             <br>
             <label>Estado</label>
-            <input type="checkbox" name="estado1" value="Normal" <?php echo(in_array("Normal", $estados)?"checked":""); ?> >Normal
-            <input type="checkbox" name="estado2" value="NF" <?php echo(in_array("NF", $estados)?"checked":""); ?> >NF
-            <input type="checkbox" name="estado3" value="Tela_boa" <?php echo(in_array("Tela boa", $estados)?"checked":""); ?> >Tela boa
-            <input type="checkbox" name="estado4" value="Na_caixa" <?php echo(in_array("Na caixa", $estados)?"checked":""); ?> >Na caixa
+            <div class="form-check">
+		          <label class="form-check-label">
+              <input type="checkbox" name="estado1" value="Normal" <?php echo(in_array("Normal", $estados)?"checked":""); ?> > Normal
+		          </label>
+            </div>
+            
+            <div class="form-check">
+		          <label class="form-check-label">
+              <input type="checkbox" name="estado2" value="NF" <?php echo(in_array("NF", $estados)?"checked":""); ?> > NF
+		          </label>
+            </div>
+            
+            <div class="form-check">
+		          <label class="form-check-label">
+              <input type="checkbox" name="estado3" value="Tela_boa" <?php echo(in_array("Tela boa", $estados)?"checked":""); ?> > Tela boa
+		          </label>
+            </div>
+            
+            <div class="form-check">
+		          <label class="form-check-label">
+              <input type="checkbox" name="estado4" value="Na_caixa" <?php echo(in_array("Na caixa", $estados)?"checked":""); ?> > Na caixa
+		          </label>
+		        </div>
+            
             <br>
+
             <label>categoria</label>
-            <select name="categoria_slc">
+            <select name="categoria_slc" class="form-control">
                 <option value="null" <?php echo ($categoria_formatado==NULL?"selected":""); ?> >Nenhuma</option> 
                 <option value="TV" <?php echo ($categoria_formatado=="TV"?"selected":""); ?> >TV</option>
                 <option value="LED" <?php echo ($categoria_formatado=="LED"?"selected":""); ?> >LED</option>
@@ -39,13 +62,29 @@
             </select>
             <br>
             <label>Status</label>
-            <input type="radio" name="status<?php echo $value['id_produto']; ?>" value="0" <?php echo ($value['status']?"":"checked"); ?> >Em estoque
-            <input type="radio" name="status<?php echo $value['id_produto']; ?>" value="1" <?php echo ($value['status']?"checked":""); ?> >Desmontando
+
+            <div class="form-check">
+  		        <label class="form-check-label">
+              <input type="radio" name="status<?php echo $value['id_produto']; ?>" value="0" <?php echo ($value['status']?"":"checked"); ?> > Em estoque
+  		        </label>
+            </div>
+
+            <div class="form-check">
+  		        <label class="form-check-label">
+              <input type="radio" name="status<?php echo $value['id_produto']; ?>" value="1" <?php echo ($value['status']?"checked":""); ?> > Desmontando
+  		        </label>
+            </div>
+            
             <br>
-            <label>Quantidade</label>
-            <input type="number" name="qtd_txt" required="required" value="<?php echo $value['quantidade']; ?>">
+
+            <div class="form-group">
+  			      <label>Quantidade:</label>
+              <input type="number" name="qtd_txt" required="required" value="<?php echo $value['quantidade']; ?>" class="form-control">
+            </div>
+            
+            
             <br>
-            <input type="submit" value="Confirmar" name="enviar_btn">
+            <input type="submit" value="Confirmar" name="enviar_btn" class="btn btn-info">
       </form>
     </div>
   </div>
