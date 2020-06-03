@@ -1,6 +1,13 @@
 <?php 
 // nao existe um programador que nao saiba programar ksksks
 	require("config.php");
+	function reloadPagina($PDO,$para){
+		if($para == "palete"){
+			carregarPalete($_SESSION['id_palete'],$PDO);
+		}else if($para == "pesquisa"){
+			pesquisa($PDO,$_SESSION['pesquisa']);
+		}
+	}
 	function carregarRua($rua,$PDO){
 		$objPaletes = new paletes($PDO);
 		$objRuas = new ruas($PDO);
@@ -15,6 +22,7 @@
 		$objRuas->loadAll();
 	}
 	function carregarPalete($id,$PDO){
+		unset($_SESSION['pesquisa']);
 		if(str_split($id)[0] == 'v'){
 			$info = explode("?", $id);
 			$and_col = explode(":", $info[1]);
@@ -54,19 +62,32 @@
 		$idProd = $_POST['id'];
 		$objProdutos= new produtos($PDO);
 		$objProdutos->entradaProdutos($idProd,$_POST['qtd']);
-		carregarPalete($_SESSION['id_palete'],$PDO);
+		if(isset($_SESSION['pesquisa'])){
+			reloadPagina($PDO,"pesquisa");
+		}else{
+			reloadPagina($PDO,"palete");
+		}
 	}
 	function saidaProd($PDO){
 		$idProd = $_POST['id'];
 		$objProdutos= new produtos($PDO);
 		$objProdutos->saidaProdutos($idProd,$_POST['qtd']);
-		carregarPalete($_SESSION['id_palete'],$PDO);
+		if(isset($_SESSION['pesquisa'])){
+			reloadPagina($PDO,"pesquisa");
+		}else{
+			reloadPagina($PDO,"palete");
+		}
 	}
 	function deleteProd($PDO){
 		$idProd = $_POST['id'];
 		$objProdutos= new produtos($PDO);
 		$objProdutos->deletaProdutos($idProd);
-		carregarPalete($_SESSION['id_palete'],$PDO);
+		if(isset($_SESSION['pesquisa'])){
+			reloadPagina($PDO,"pesquisa");
+		}else{
+			reloadPagina($PDO,"palete");
+		}
+		
 	}
 	function alteraProd($PDO){
 		$idProd = $_POST['id'];
@@ -82,13 +103,16 @@
 				array_push($estado, $_POST['estado'.$i]);
 			}
 		}
-		
 		$objProdutos= new produtos($PDO);
 		$objProdutos->alteraProduto($idProd, $nome, $marca, $estado, $categoria, $status, $qtd);
-		carregarPalete($_SESSION['id_palete'],$PDO);
+		if(isset($_SESSION['pesquisa'])){
+			reloadPagina($PDO,"pesquisa");
+		}else{
+			reloadPagina($PDO,"palete");
+		}
 	}
-	function pesquisa($PDO){
-		$chave = $_POST['chave'];
+	function pesquisa($PDO,$chave){
+		$_SESSION['pesquisa'] = $chave;
 		$objProdutos = new produtos($PDO);
 		$dados = $objProdutos->pesquisaBD($chave);
 		$objProdutos->loadSearch($dados);
@@ -115,7 +139,7 @@
 		else if($_POST['funcao']=="alteraProduto"){
 			alteraProd($PDO);
 		}else if($_POST['funcao']=="pesquisa"){
-			pesquisa($PDO);
+			pesquisa($PDO,$_POST['chave']);
 		}else{
 			echo "funcao indefinida!";
 		}

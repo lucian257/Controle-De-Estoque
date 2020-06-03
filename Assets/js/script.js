@@ -77,7 +77,8 @@ $j(document).ready(function(){ // carregar pagina primeiro
 
 	$j('#corpo').on("click",".tbl_paletes td",function(){
 		var id = $j(this).attr("id");
-		if(id != "cancel"){
+		var empty = $j(this).data("ativo");
+		if(empty != "cancel"){
 			$j.ajax({
 			type:'POST',
 			dataType:"html",
@@ -112,6 +113,7 @@ $j(document).ready(function(){ // carregar pagina primeiro
 				console.log("error no ajax");
 			}
 		});
+		$j("#palavraChave_txt").val("");
 		
 	});
 	$j('#corpo').on("submit",".formAddProd",function(aux){
@@ -224,7 +226,7 @@ $j(document).ready(function(){ // carregar pagina primeiro
 		
 	});
 	$j("#btnPesquisar").on("click",function(){
-		var palavraChave = $j("#palavraChave_txt").val();
+		var palavraChave = $j("#palavraChave_txt").val().trim();
 		if (palavraChave.length > 0) {
 			$j.ajax({
 				type:'POST',
@@ -261,6 +263,5 @@ $j(document).ready(function(){ // carregar pagina primeiro
 			});
 	 	}
 	 });
-
 
 });

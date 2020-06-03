@@ -44,7 +44,7 @@ class loadInterface{
 				}else{
 					if ($allPaletes[$id_array]["vazio"] == 1) {
 						//PALETE INEXITENTE
-						echo "<td id='$id' style='background:transparent; border:0px; box-shadow: 0px 0px 0px;' >&nbsp;</td>";
+						echo "<td id='$id' data-ativo='cancel' style='background:transparent; border:0px; box-shadow: 0px 0px 0px;' >&nbsp;</td>";
 					}else{
 						if ($allPaletes[$id_array]["celula"] == 0) {
 							//PALETE COM PRODUTOS
@@ -138,7 +138,7 @@ class="w3-btn w3-ripple w3-green bt_add">Adicionar novo produto</button>
             $categoria_formatado = str_replace("_", " ", $value['categoria']);
 			
 			?>
-			<tr id="<?php echo $value['id_produto']; ?>">
+			<tr id="<?php echo $value['id_produto']; ?>" class="valores">
 				<td><?php echo $value['nome']; ?></td>
 				<td><?php echo ($value['marca']==NULL?"Sem Marca":$value['marca']); ?></td>
 				<td><?php echo ($categoria_formatado==NULL?"Indefinida":$categoria_formatado); ?></td>
@@ -146,10 +146,10 @@ class="w3-btn w3-ripple w3-green bt_add">Adicionar novo produto</button>
 				<td><?php echo $value['quantidade']; ?></td>
 				<td><?php echo $value['status']; ?></td>
 				<td>
-					<button id="btnEntrada">Entrada</button>
-					<button id="btnSaida">Saída</button>
-					<button onclick="document.getElementById('id<?php echo $value['id_produto']; ?>').style.display='block'" id="btnAlterar">Alterar</button>
-					<button id="btnDeleta">Deletar</button>
+					<button id="btnEntrada" class="btn btn-success">Entrada</button>
+					<button id="btnSaida" class="btn btn-info">Saída</button>
+					<button onclick="document.getElementById('id<?php echo $value['id_produto']; ?>').style.display='block'" id="btnAlterar" class="btn btn-warning">Alterar</button>
+					<button id="btnDeleta" class="btn btn-danger">Deletar</button>
 				</td>
 			</tr>
 		<?php }
@@ -196,10 +196,11 @@ class="w3-btn w3-ripple w3-green bt_add">Adicionar novo produto</button>
 				<td><?php echo $value['quantidade']; ?></td>
 				<td><?php echo $value['status']; ?></td>
 				<td>
-					<button id="btnEntrada">Entrada</button>
-					<button id="btnSaida">Saída</button>
-					<button onclick="document.getElementById('id<?php echo $value['id_produto']; ?>').style.display='block'" id="btnAlterar">Alterar</button>
-					<button id="btnDeleta">Deletar</button>
+
+					<button id="btnEntrada" class="btn btn-success">Entrada</button>
+					<button id="btnSaida" class="btn btn-info">Saída</button>
+					<button onclick="document.getElementById('id<?php echo $value['id_produto']; ?>').style.display='block'" id="btnAlterar" class="btn btn-warning">Alterar</button>
+					<button id="btnDeleta" class="btn btn-danger">Deletar</button>
 				</td>
 			</tr>
 		<?php }
