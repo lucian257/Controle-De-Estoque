@@ -44,7 +44,7 @@ class loadInterface{
 				}else{
 					if ($allPaletes[$id_array]["vazio"] == 1) {
 						//PALETE INEXITENTE
-						echo "<td id='$id'>&nbsp;</td>";
+						echo "<td id='$id' style='background:transparent; border:0px; box-shadow: 0px 0px 0px;' >&nbsp;</td>";
 					}else{
 						if ($allPaletes[$id_array]["celula"] == 0) {
 							//PALETE COM PRODUTOS
@@ -110,11 +110,11 @@ class loadInterface{
 		include("include/modalAddProdutos.php");
 		?>
 		<button onclick="document.getElementById('id01').style.display='block'"
-class="w3-btn w3-ripple w3-green">Adicionar novo produto</button>
+class="w3-btn w3-ripple w3-green bt_add ">Adicionar novo produto</button>
 		<?php
 		echo "
-		<table class='tbl_produtos'>
-			<tr>
+		<table class='table tbl_produtos table-bordered'>
+			<tr class='cabeçalho'>
 	    		<th>Nome</th>
 	    		<th>Marca</th>
 	    		<th>Categoria</th>
