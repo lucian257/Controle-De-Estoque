@@ -145,7 +145,7 @@ class="w3-btn w3-ripple w3-green bt_add">Adicionar novo produto</button>
 				<td><?php echo ($estado_formatado==""?"Indefinido":$estado_formatado); ?></td>
 				<td class="qtd"><?php echo $value['quantidade']; ?></td>
 				<td><?php echo ($value['status']?"Desmontando":"Em estoque"); ?></td>
-				<td>
+				<td class="botoes_ac">
 					<button id="btnEntrada" class="btn btn-success">Entrada</button>
 					<button id="btnSaida" class="btn btn-info">Saída</button>
 					<button onclick="document.getElementById('id<?php echo $value['id_produto']; ?>').style.display='block'" id="btnAlterar" class="btn btn-warning">Alterar</button>
