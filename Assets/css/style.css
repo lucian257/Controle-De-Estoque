@@ -1,14 +1,14 @@
 @charset 'utf-8';
 
 .pesquisar{
-    width: 20%;
-    height: 50px;
+    width: 25%;
+    height: 70px;
     margin: auto;
     display: flex;
     justify-content: center;
     position: relative;
-    top: 40%;
-    border: solid 0.1em #ffffff;
+    top: 40px;
+    border: dashed 0.5px #999999;
     box-shadow: 7px 7px 3px rgba(0, 0, 0, 0.2);
     outline: 0;
     transition: all ease-out 0.2s;
@@ -55,25 +55,22 @@
 
 
 .botao{
-    width: 25%;
-    background-color: #023e7d;
+    background-color: #ff7f00;
     font-family: 'tahoma';
-    color: ivory;
+    color: #ffffff;
     border-radius: 20px;
     border: solid 2px #fff;
     position: absolute;
-    left: 38%;
+    left: 42.5%;
     top: 50px;
     outline: 0;
+    width: 15%;
+    margin: auto;
+    height: 40px;
 }
 .botao:hover{
     background: ivory;
     color: #023e7d;
-}
-
-.botao :hover{
-    background-color: burlywood;
-    text-align: center;
 }
 
 .busca{
@@ -140,21 +137,21 @@
     border-spacing: 10px;
     position: relative;
     top: 50px;
-    border: 0;
     margin: auto;
+    
     
 }
 
 .tbl_paletes td{
-    background: #3dc3f2;
+    background: #ff7f00;
     box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.2);
-    border: 0;
-    
+    border: solid 2px #fff;
+  
 }
 
 
 .tbl_paletes td:hover{
-    background: #023e7d;
+    background: #f09037;
     color: white;
     transition: all ease-in 0.1s;
     cursor: pointer;
@@ -165,9 +162,26 @@
     margin: 15px;
 }
 
+.tbl_produtos{
+    text-align: center;
+    color: white;
+}
 
 .cabeçalho{
     color: white;
+}
+
+.tbl_produtos .valores{
+    color: white;
+}
+
+.modall{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height:350px;
+    overflow-y: scroll;
+    
 }
 
 @media (max-width:767px){
@@ -194,13 +208,6 @@
        min-width: 70px;
 }
 
-.modal_prod{
-    background-color: teal;
-}
-
-.w3_modal_content{
-    background-color:teal;
-}
 
 @media (min-width:768px) and (max-width:1024px){
 
