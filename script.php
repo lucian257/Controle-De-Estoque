@@ -1,4 +1,5 @@
 <?php 
+// nao existe um programador que nao saiba programar ksksks
 	require("config.php");
 	function carregarRua($rua,$PDO){
 		$objPaletes = new paletes($PDO);

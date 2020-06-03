@@ -21,6 +21,7 @@ $j(document).ready(function(){ // carregar pagina primeiro
 		$j("#retorno").css("display", "");
 		$j("#div_inicial").css("display", "none");
 		$j("#pesquisa").css("display", "");
+		$j("#voltar").css("display", "");
 	 }
 
 	$j("#cod").keydown(function(event){ // Entrar apertando enter
@@ -136,6 +137,7 @@ $j(document).ready(function(){ // carregar pagina primeiro
 	});
 	$j("#corpo").on("click", "#btnEntrada",function(){
 		var valor = prompt("Quantidade de entrada:");
+		var valor = valor.replace(/[-]+/g, '');
 		if(valor != null){
 			var id = $j(this).parent().parent().prop("id");
 			id.substr(3);
@@ -158,6 +160,7 @@ $j(document).ready(function(){ // carregar pagina primeiro
 	});
 	$j("#corpo").on("click", "#btnSaida",function(){
 		var valor = prompt("Quantidade de saída:");
+		var valor = valor.replace(/[-]+/gi, '');
 		if(valor != null){
 			var id = $j(this).parent().parent().prop("id");
 			id.substr(3);
@@ -238,6 +241,26 @@ $j(document).ready(function(){ // carregar pagina primeiro
 			});
 		}
 	});
+
+	$j("#palavraChave_txt").keydown(function(event){ // Entrar apertando enter
+	 	var tecla = event.keyCode;	
+	 	var palavraChave = $j("#palavraChave_txt").val();
+	 	if (tecla == 13) {
+	 		$j.ajax({
+				type:'POST',
+				dataType:"html",
+				async: false,
+				url:'script.php',
+				data:"funcao=pesquisa&chave="+palavraChave,
+				success:function(resp){
+					$j('#corpo').html(resp);
+				},
+				error:function(){
+					console.log("error no ajax");
+				}
+			});
+	 	}
+	 });
 
 
 });

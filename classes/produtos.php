@@ -21,9 +21,11 @@ class produtos extends loadInterface{
 	}
 	public function entradaProdutos($id,$qtd){
 		$this->PDO->query("UPDATE tbl_produtos SET quantidade=quantidade+$qtd WHERE id_produto=$id");
+		$this->PDO->query("INSERT INTO tbl_registros(data, tipo, fk_id_produto) VALUES (Now(), '0', '$id') ");
 	}
 	public function saidaProdutos($id,$qtd){
 		$this->PDO->query("UPDATE tbl_produtos SET quantidade=quantidade-$qtd WHERE id_produto=$id");
+		$this->PDO->query("INSERT INTO tbl_registros(data, tipo, fk_id_produto) VALUES (Now(), '1', '$id') ");
 	}
 	public function deletaProdutos($id){
 		$this->PDO->query("SET foreign_key_checks = 0");
