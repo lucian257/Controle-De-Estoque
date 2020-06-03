@@ -119,7 +119,7 @@ class loadInterface{
 class="w3-btn w3-ripple w3-green bt_add">Adicionar novo produto</button>
 		<?php
 		echo "
-		<table class='table tbl_produtos table-bordered'>
+		<table class=' tbl_produtos table-bordered'>
 			<tr class='cabeçalho'>
 	    		<th>Nome</th>
 	    		<th>Marca</th>

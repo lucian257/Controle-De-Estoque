@@ -1,5 +1,5 @@
 <div id="addmodal" class="w3-modal">
-  <div class="w3-modal-content"> <!-- modal adicionar um novo produto -->
+  <div class="w3-modal-content "> <!-- modal adicionar um novo produto -->
     <div class="w3-container">
       <span onclick="document.getElementById('addmodal').style.display='none'"
       class="w3-button w3-display-topright">&times;</span>
