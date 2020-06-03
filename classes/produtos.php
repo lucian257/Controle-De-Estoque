@@ -26,6 +26,16 @@ class produtos extends loadInterface{
 	public function saidaProdutos($id,$qtd){
 		$this->PDO->query("UPDATE tbl_produtos SET quantidade=quantidade-$qtd WHERE id_produto=$id");
 		$this->PDO->query("INSERT INTO tbl_registros(data, tipo, fk_id_produto) VALUES (Now(), '1', '$id') ");
+		$this->testaQtd($id);
+	}
+	private function testaQtd($id){
+		$sql = $this->PDO->query("SELECT quantidade FROM tbl_produtos WHERE id_produto=$id");
+		$qtd = $sql->fetch();
+		if ($qtd['quantidade'] == 0) {
+			$this->PDO->query("SET foreign_key_checks = 0");
+			$this->PDO->query("DELETE FROM tbl_produtos WHERE id_produto = $id");
+			$this->PDO->query("SET foreign_key_checks = 1");
+		}
 	}
 	public function deletaProdutos($id){
 		$this->PDO->query("SET foreign_key_checks = 0");
@@ -45,7 +55,7 @@ class produtos extends loadInterface{
 		$this->PDO->query("SET foreign_key_checks = 1");
 	}
 	public function pesquisaBD($nome){
-		$sql= $this->PDO->query("SELECT * FROM tbl_produtos INNER JOIN tbl_paletes ON tbl_produtos.fk_id_palete = tbl_paletes.id_palete WHERE tbl_produtos.nome LIKE '%$nome%'");
+		$sql= $this->PDO->query("SELECT * FROM tbl_produtos INNER JOIN tbl_paletes ON tbl_produtos.fk_id_palete = tbl_paletes.id_palete WHERE (tbl_produtos.nome LIKE '%$nome%') OR (tbl_produtos.marca LIKE '%$nome%') OR (tbl_produtos.estado LIKE '%$nome%') OR (tbl_produtos.categoria LIKE '%$nome%')");
 		return $sql->fetchALL(PDO::FETCH_ASSOC);
 	}
 	public function loadProdutos($idPalete){

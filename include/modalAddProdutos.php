@@ -11,7 +11,7 @@
       	<br>
       	<label>Marca</label>
       	<select name="marca_slc" class="form-control">
-      		<option value="null">Nenhuma</option> 
+      		<option value="NULL">Nenhuma</option> 
   			<option value="LG">LG</option>
   			<option value="Samsung">Samsung</option>
   			<option value="Philco">Philco</option>
@@ -52,7 +52,7 @@
       	<br>
       	<label>categoria</label>
       	<select name="categoria_slc" class="form-control">
-      		<option value="null">Nenhuma</option> 
+      		<option value="NULL">Nenhuma</option> 
   			<option value="TV" selected="selected">TV</option>
   			<option value="LED">LED</option>
   			<option value="PLACAS">PLACAS</option>
@@ -76,7 +76,7 @@
 		  <br>
 		  <div class="form-group">
   			<label>Quantidade:</label>
-  			<input type="number" name="qtd_txt" value="0" required="required" class="form-control">
+  			<input min="1" step="1" type="number" name="qtd_txt" value="0" required="required" class="form-control">
 		 </div>
 
       	<input id="btnAddProd" type="submit" value="Confirmar" name="enviar_btn" class="btn btn-info">

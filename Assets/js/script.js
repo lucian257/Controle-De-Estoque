@@ -163,7 +163,8 @@ $j(document).ready(function(){ // carregar pagina primeiro
 	$j("#corpo").on("click", "#btnSaida",function(){
 		var valor = prompt("Quantidade de saída:");
 		var valor = valor.replace(/[-]+/gi, '');
-		if(valor != null){
+		var qtd = $j(this).parent().parent().find(".qtd").html();
+		if((valor != null) && (valor <= qtd)){
 			var id = $j(this).parent().parent().prop("id");
 			id.substr(3);
 			$j.ajax({
@@ -179,6 +180,8 @@ $j(document).ready(function(){ // carregar pagina primeiro
 					console.log("error no ajax");
 				}
 			})
+		}else{
+			alert("Valor inválido!");
 		}
 		;
 	});

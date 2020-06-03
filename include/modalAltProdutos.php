@@ -11,7 +11,7 @@
             <br>
             <label>Marca</label>
             <select name="marca_slc" class="form-control">
-                <option value="null" <?php echo ($value['marca']==NULL?"selected":""); ?> >Nenhuma</option> 
+                <option value="NULL" <?php echo ($value['marca']==NULL?"selected":""); ?> >Nenhuma</option> 
                 <option value="LG" <?php echo ($value['marca']=="LG"?"selected":""); ?> >LG</option>
                 <option value="Samsung" <?php echo ($value['marca']=="Samsung"?"selected":""); ?> >Samsung</option>
                 <option value="Philco" <?php echo ($value['marca']=="Philco"?"selected":""); ?> >Philco</option>
@@ -53,7 +53,7 @@
 
             <label>categoria</label>
             <select name="categoria_slc" class="form-control">
-                <option value="null" <?php echo ($categoria_formatado==NULL?"selected":""); ?> >Nenhuma</option> 
+                <option value="NULL" <?php echo ($categoria_formatado=="NULL"?"selected":""); ?> >Nenhuma</option> 
                 <option value="TV" <?php echo ($categoria_formatado=="TV"?"selected":""); ?> >TV</option>
                 <option value="LED" <?php echo ($categoria_formatado=="LED"?"selected":""); ?> >LED</option>
                 <option value="PLACAS" <?php echo ($categoria_formatado=="PLACAS"?"selected":""); ?> >PLACAS</option>
@@ -79,7 +79,7 @@
 
             <div class="form-group">
   			      <label>Quantidade:</label>
-              <input type="number" name="qtd_txt" required="required" value="<?php echo $value['quantidade']; ?>" class="form-control">
+              <input type="number" name="qtd_txt" required="required" value="<?php echo $value['quantidade']; ?>" class="form-control" min="1" step="1">
             </div>
             
             
