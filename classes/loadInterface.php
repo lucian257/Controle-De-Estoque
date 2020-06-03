@@ -183,25 +183,25 @@ class="w3-btn w3-ripple w3-green bt_add">Adicionar novo produto</button>
 			$estado_formatado = str_replace("_", " ", $value['estado']);
             $estados = explode("/", $estado_formatado);
             $categoria_formatado = str_replace("_", " ", $value['categoria']);
-			$ruas="ABCDEF";
+			$ruas=["A","B","C","D","E","F"];
 			?>
 			<tr id="<?php echo $value['id_produto']; ?>">
-				<td><?php echo substr($ruas, $value['fk_id_rua']); ?><td>
-				<td><?php echo $value['coluna']; ?><td>
-				<td><?php echo $value['andar']; ?><td>
-				<td><?php echo $value['nome']; ?><td>
-				<td><?php echo ($value['marca']==NULL?"Sem Marca":$value['marca']); ?><td>
-				<td><?php echo ($categoria_formatado==NULL?"Indefinida":$categoria_formatado); ?><td>
-				<td><?php echo ($estado_formatado==NULL?"Indefinido":$estado_formatado); ?><td>
-				<td><?php echo $value['quantidade']; ?><td>
-				<td><?php echo $value['status']; ?><td>
+				<td><?php echo $ruas[$value['fk_id_rua']-1]; ?></td>
+				<td><?php echo $value['coluna']; ?></td>
+				<td><?php echo $value['andar']; ?></td>
+				<td><?php echo $value['nome']; ?></td>
+				<td><?php echo ($value['marca']==NULL?"Sem Marca":$value['marca']); ?></td>
+				<td><?php echo ($categoria_formatado==NULL?"Indefinida":$categoria_formatado); ?></td>
+				<td><?php echo ($estado_formatado==NULL?"Indefinido":$estado_formatado); ?></td>
+				<td><?php echo $value['quantidade']; ?></td>
+				<td><?php echo $value['status']; ?></td>
 				<td>
 					<button id="btnEntrada">Entrada</button>
 					<button id="btnSaida">Saída</button>
 					<button onclick="document.getElementById('id<?php echo $value['id_produto']; ?>').style.display='block'" id="btnAlterar">Alterar</button>
 					<button id="btnDeleta">Deletar</button>
-				<td>
-			<tr>
+				</td>
+			</tr>
 		<?php }
 
 		echo "</table>";
