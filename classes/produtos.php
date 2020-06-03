@@ -42,10 +42,16 @@ class produtos extends loadInterface{
 		$this->PDO->query("UPDATE tbl_produtos SET nome='$nome', marca='$marca',estado='$sqlestado', categoria='$categoria', quantidade=$qtd, status=$status WHERE id_produto = $id");
 		$this->PDO->query("SET foreign_key_checks = 1");
 	}
-
+	public function pesquisaBD($nome){
+		$sql= $this->PDO->query("SELECT * FROM tbl_produtos INNER JOIN tbl_paletes ON tbl_produtos.fk_id_palete = tbl_paletes.id_palete WHERE tbl_produtos.nome LIKE '%$nome%'");
+		return $sql->fetchALL(PDO::FETCH_ASSOC);
+	}
 	public function loadProdutos($idPalete){
 		$produtos = $this->getProdutos($idPalete);
 		$this->loadPalete($produtos,$idPalete);
+	}
+	public function loadSearch($dados){
+		$this->loadPesquisa($dados);
 	}
 }
 ?>

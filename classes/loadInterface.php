@@ -130,6 +130,8 @@ class="w3-btn w3-ripple w3-green bt_add">Adicionar novo produto</button>
 	    		<th>Ação</th>
 	  		</tr>
 		";
+		//echo "<pre>";
+		//print_r($allProdutos);
 		foreach ($allProdutos as $value){ 
 			$estado_formatado = str_replace("_", " ", $value['estado']);
             $estados = explode("/", $estado_formatado);
@@ -137,6 +139,56 @@ class="w3-btn w3-ripple w3-green bt_add">Adicionar novo produto</button>
 			
 			?>
 			<tr id="<?php echo $value['id_produto']; ?>">
+				<td><?php echo $value['nome']; ?></td>
+				<td><?php echo ($value['marca']==NULL?"Sem Marca":$value['marca']); ?></td>
+				<td><?php echo ($categoria_formatado==NULL?"Indefinida":$categoria_formatado); ?></td>
+				<td><?php echo ($estado_formatado==NULL?"Indefinido":$estado_formatado); ?></td>
+				<td><?php echo $value['quantidade']; ?></td>
+				<td><?php echo $value['status']; ?></td>
+				<td>
+					<button id="btnEntrada">Entrada</button>
+					<button id="btnSaida">Saída</button>
+					<button onclick="document.getElementById('id<?php echo $value['id_produto']; ?>').style.display='block'" id="btnAlterar">Alterar</button>
+					<button id="btnDeleta">Deletar</button>
+				</td>
+			</tr>
+		<?php }
+
+		echo "</table>";
+	}
+	protected function loadPesquisa($dados){
+		//carrega pesquisa
+		foreach ($dados as $value) {
+			$estado_formatado = str_replace("_", " ", $value['estado']);
+            $estados = explode("/", $estado_formatado);
+            $categoria_formatado = str_replace("_", " ", $value['categoria']);
+			include("include/modalAltProdutos.php");
+		}
+		echo "
+		<table class='table tbl_produtos table-bordered' style='color:white'>
+			<tr class='cabeçalho'>
+				<th>Rua</th>
+	    		<th>Coluna</th>
+	    		<th>Andar</th>
+	    		<th>Nome</th>
+	    		<th>Marca</th>
+	    		<th>Categoria</th>
+	    		<th>Estado</th>
+	    		<th>Quantidade</th>
+	    		<th>Status</th>
+	    		<th>Ação</th>
+	  		</tr>
+		";
+		foreach ($dados as $value) {
+			$estado_formatado = str_replace("_", " ", $value['estado']);
+            $estados = explode("/", $estado_formatado);
+            $categoria_formatado = str_replace("_", " ", $value['categoria']);
+			$ruas="ABCDEF";
+			?>
+			<tr id="<?php echo $value['id_produto']; ?>">
+				<td><?php echo substr($ruas, $value['fk_id_rua']); ?><td>
+				<td><?php echo $value['coluna']; ?><td>
+				<td><?php echo $value['andar']; ?><td>
 				<td><?php echo $value['nome']; ?><td>
 				<td><?php echo ($value['marca']==NULL?"Sem Marca":$value['marca']); ?><td>
 				<td><?php echo ($categoria_formatado==NULL?"Indefinida":$categoria_formatado); ?><td>
@@ -153,9 +205,8 @@ class="w3-btn w3-ripple w3-green bt_add">Adicionar novo produto</button>
 		<?php }
 
 		echo "</table>";
-	}
-	protected function loadPesquisa(){
-		//carrega pesquisa
+		
+
 		 
 	}
 }

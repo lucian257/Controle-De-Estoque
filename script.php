@@ -87,7 +87,10 @@
 		carregarPalete($_SESSION['id_palete'],$PDO);
 	}
 	function pesquisa($PDO){
-
+		$chave = $_POST['chave'];
+		$objProdutos = new produtos($PDO);
+		$dados = $objProdutos->pesquisaBD($chave);
+		$objProdutos->loadSearch($dados);
 	}
 
 	if (isset($_POST['funcao']) && $_POST['funcao']!= NULL) {
