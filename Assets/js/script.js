@@ -76,7 +76,8 @@ $j(document).ready(function(){ // carregar pagina primeiro
 
 	$j('#corpo').on("click",".tbl_paletes td",function(){
 		var id = $j(this).attr("id");
-		if(id != "cancel"){
+		var empty = $j(this).data("ativo");
+		if(empty != "cancel"){
 			$j.ajax({
 			type:'POST',
 			dataType:"html",
@@ -111,6 +112,7 @@ $j(document).ready(function(){ // carregar pagina primeiro
 				console.log("error no ajax");
 			}
 		});
+		$j("#palavraChave_txt").val("");
 		
 	});
 	$j('#corpo').on("submit",".formAddProd",function(aux){
@@ -221,7 +223,7 @@ $j(document).ready(function(){ // carregar pagina primeiro
 		
 	});
 	$j("#btnPesquisar").on("click",function(){
-		var palavraChave = $j("#palavraChave_txt").val();
+		var palavraChave = $j("#palavraChave_txt").val().trim();
 		if (palavraChave.length > 0) {
 			$j.ajax({
 				type:'POST',
@@ -238,6 +240,41 @@ $j(document).ready(function(){ // carregar pagina primeiro
 			});
 		}
 	});
-
+	$j("#flt_marca").on("change", function() {
+		var palavraChave = $j("#palavraChave_txt").val().trim();
+		if (palavraChave.length > 0) {
+			$j.ajax({
+				type:'POST',
+				dataType:"html",
+				async: false,
+				url:'script.php',
+				data:"funcao=pesquisa&chave="+palavraChave,
+				success:function(resp){
+					$j('#corpo').html(resp);
+				},
+				error:function(){
+					console.log("error no ajax");
+				}
+			});
+		}else{
+			$j.ajax({
+				type:'POST',
+				dataType:"html",
+				async: false,
+				url:'script.php',
+				data:"funcao=filter&chave="+palavraChave,
+				success:function(resp){
+					$j('#corpo').html(resp);
+				},
+				error:function(){
+					console.log("error no ajax");
+				}
+			});
+		}
+		/*
+    	var value = $j(this).val().toLowerCase();
+    	$j("#myTable tr").filter(function() {
+        $j(this).toggle($j(this).text().toLowerCase().indexOf(value) > -1)});*/
+  	});
 
 });

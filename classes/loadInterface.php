@@ -44,7 +44,7 @@ class loadInterface{
 				}else{
 					if ($allPaletes[$id_array]["vazio"] == 1) {
 						//PALETE INEXITENTE
-						echo "<td id='$id' style='background:transparent; border:0px; box-shadow: 0px 0px 0px;' >&nbsp;</td>";
+						echo "<td id='$id' data-ativo='cancel' style='background:transparent; border:0px; box-shadow: 0px 0px 0px;' >&nbsp;</td>";
 					}else{
 						if ($allPaletes[$id_array]["celula"] == 0) {
 							//PALETE COM PRODUTOS

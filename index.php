@@ -28,6 +28,7 @@
   <path fill-rule="evenodd" d="M11.5 8a.5.5 0 0 0-.5-.5H2a.5.5 0 0 0 0 1h9a.5.5 0 0 0 .5-.5z"/>
   <path fill-rule="evenodd" d="M14 13.5a1.5 1.5 0 0 0 1.5-1.5V4A1.5 1.5 0 0 0 14 2.5H7A1.5 1.5 0 0 0 5.5 4v1.5a.5.5 0 0 0 1 0V4a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-1.5a.5.5 0 0 0-1 0V12A1.5 1.5 0 0 0 7 13.5h7z"/>
 </svg>
+
 		<div id="pesquisa" style="display: none;">
 
 
@@ -35,12 +36,44 @@
 			<input id="palavraChave_txt" type='text' placeholder ='Digite a palavra-chave...' class='pesquisar'>
 			<input id="btnPesquisar" type='button' value='Pesquisar' class = 'botao' >	
 		</div>
-
+		
 		<svg id="voltar" class="bi bi-arrow-return-left" width="3em" height="3em" viewBox="0 0 16 16" 		fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   			<path fill-rule="evenodd" d="M5.854 5.646a.5.5 0 0 1 0 .708L3.207 9l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0z"/>
   			<path fill-rule="evenodd" d="M13.5 2.5a.5.5 0 0 1 .5.5v4a2.5 2.5 0 0 1-2.5 2.5H3a.5.5 0 0 1 0-1h8.5A1.5 1.5 0 0 0 13 7V3a.5.5 0 0 1 .5-.5z"/>
 		</svg>
-
+		<div>
+			<label>Marca</label>
+        	<select id="flt_marca" name="flt_marca_txt">
+        	<option value="null">Nenhuma</option> 
+    			<option value="LG">LG</option>
+    			<option value="Samsung">Samsung</option>
+    			<option value="Philco">Philco</option>
+    			<option value="Phillips">Phillips</option>
+    			<option value="Sony">Sony</option>
+    			<option value="CCE">CCE</option>
+    			<option value="AOC">AOC</option>
+    			<option value="Panasony">Panasony</option>
+    			<option value="TCL">TCL</option>
+    			<option value="Outros">Outros</option>
+      	</select>
+      	<label>Estado</label>
+      	<input type="checkbox" name="estado1" value="Normal" checked="checked">Normal
+      	<input type="checkbox" name="estado2" value="NF">NF
+      	<input type="checkbox" name="estado3" value="Tela_boa">Tela boa
+      	<input type="checkbox" name="estado4" value="Na_caixa">Na caixa
+      	<label>categoria</label>
+      	<select name="categoria_slc">
+      		<option value="null">Nenhuma</option> 
+  			<option value="TV" selected="selected">TV</option>
+  			<option value="LED">LED</option>
+  			<option value="PLACAS">PLACAS</option>
+  			<option value="AUTO_FALANTE">AUTO FALANTE</option>
+  			<option value="OUTROS">OUTROS</option>
+      	</select>
+      	<label>Status</label>
+      	<input type="radio" name="status" value="0" checked="checked">Em estoque
+      	<input type="radio" name="status" value="1">Desmontando
+		</div>
 		<!--        div         -->
 		<div id="corpo" class= "conteudo" style="display:none">
 			
