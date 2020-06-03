@@ -108,12 +108,18 @@ class loadInterface{
 		//echo "<pre>";
 		//echo print_r($allProdutos);
 		include("include/modalAddProdutos.php");
+		foreach ($allProdutos as $value){ 
+			$estado_formatado = str_replace("_", " ", $value['estado']);
+            $estados = explode("/", $estado_formatado);
+            $categoria_formatado = str_replace("_", " ", $value['categoria']);
+			include("include/modalAltProdutos.php");
+		}
 		?>
-		<button onclick="document.getElementById('id01').style.display='block'"
+		<button onclick="document.getElementById('addmodal').style.display='block'"
 class="w3-btn w3-ripple w3-green">Adicionar novo produto</button>
 		<?php
 		echo "
-		<table class='tbl_produtos'>
+		<table class='tbl_produtos' style='color:white'>
 			<tr>
 	    		<th>Nome</th>
 	    		<th>Marca</th>
@@ -128,7 +134,6 @@ class="w3-btn w3-ripple w3-green">Adicionar novo produto</button>
 			$estado_formatado = str_replace("_", " ", $value['estado']);
             $estados = explode("/", $estado_formatado);
             $categoria_formatado = str_replace("_", " ", $value['categoria']);
-			include("include/modalAltProdutos.php");
 			
 			?>
 			<tr id="<?php echo $value['id_produto']; ?>">
@@ -151,6 +156,7 @@ class="w3-btn w3-ripple w3-green">Adicionar novo produto</button>
 	}
 	protected function loadPesquisa(){
 		//carrega pesquisa
+		 
 	}
 }
 ?>

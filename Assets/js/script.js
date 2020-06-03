@@ -113,14 +113,12 @@ $j(document).ready(function(){ // carregar pagina primeiro
 		});
 		
 	});
-	$j('#corpo').on("click","#btnAddProd",function(){
-		var form = $j(this).parent();
+	$j('#corpo').on("submit",".formAddProd",function(aux){
+		aux.preventDefault();
+		var form = $j(this);
 		var dados = form.serialize();
-		console.log(form);
-		
 		dados +="&id="+form.prop("id").substr(3);;
 		dados +="&funcao=addProduto"; 
-		console.log(dados);
 		$j.ajax({
 			type:'POST',
 			dataType:"html",
@@ -138,41 +136,46 @@ $j(document).ready(function(){ // carregar pagina primeiro
 	});
 	$j("#corpo").on("click", "#btnEntrada",function(){
 		var valor = prompt("Quantidade de entrada:");
-		var id = $j(this).parent().parent().prop("id");
-		id.substr(3);
-		$j.ajax({
-			type:'POST',
-			dataType:"html",
-			async: false,
-			url:'script.php',
-			data:"funcao=entrada&id="+id+"&qtd="+valor,
-			success:function(resp){
-				$j('#corpo').html(resp);
+		if(valor != null){
+			var id = $j(this).parent().parent().prop("id");
+			id.substr(3);
+			$j.ajax({
+				type:'POST',
+				dataType:"html",
+				async: false,
+				url:'script.php',
+				data:"funcao=entrada&id="+id+"&qtd="+valor,
+				success:function(resp){
+					$j('#corpo').html(resp);
 
-			},
-			error:function(){
-				console.log("error no ajax");
-			}
-		});
+				},
+				error:function(){
+					console.log("error no ajax");
+				}
+			});
+		}
+		
 	});
 	$j("#corpo").on("click", "#btnSaida",function(){
 		var valor = prompt("Quantidade de saída:");
-
-		var id = $j(this).parent().parent().prop("id");
-		id.substr(3);
-		$j.ajax({
-			type:'POST',
-			dataType:"html",
-			async: false,
-			url:'script.php',
-			data:"funcao=saida&id="+id+"&qtd="+valor,
-			success:function(resp){
-				$j('#corpo').html(resp);
-			},
-			error:function(){
-				console.log("error no ajax");
-			}
-		});
+		if(valor != null){
+			var id = $j(this).parent().parent().prop("id");
+			id.substr(3);
+			$j.ajax({
+				type:'POST',
+				dataType:"html",
+				async: false,
+				url:'script.php',
+				data:"funcao=saida&id="+id+"&qtd="+valor,
+				success:function(resp){
+					$j('#corpo').html(resp);
+				},
+				error:function(){
+					console.log("error no ajax");
+				}
+			})
+		}
+		;
 	});
 	$j("#corpo").on("click", "#btnDeleta",function(){
 		var valor = confirm("Deseja deletar?");
@@ -196,17 +199,12 @@ $j(document).ready(function(){ // carregar pagina primeiro
 		
 	});
 
-	$j("#corpo").on("click", ".btnConfirmAlt",function(){
-		var form = $j(this).parent();
+	$j("#corpo").on("submit", ".alterar_prod",function(aux){
+		aux.preventDefault();
+		var form = $j(this);
 		var dados = form.serialize();
-		console.log(dados);
-		/*var form = $j(this).parent().find("form");
-		var dados = form.serialize();
-		console.log(form);
-		
-		dados +="&id="+form.prop("id");
+		dados +="&id="+form.prop("id").substr(3);
 		dados +="&funcao=alteraProduto"; 
-		//var id = $j(this).parent().parent().prop("id");
 		$j.ajax({
 				type:'POST',
 				dataType:"html",
@@ -219,8 +217,26 @@ $j(document).ready(function(){ // carregar pagina primeiro
 				error:function(){
 					console.log("error no ajax");
 				}
-			});*/
+			});
 		
+	});
+	$j("#btnPesquisar").on("click",function(){
+		var palavraChave = $j("#palavraChave_txt").val();
+		if (palavraChave.length > 0) {
+			$j.ajax({
+				type:'POST',
+				dataType:"html",
+				async: false,
+				url:'script.php',
+				data:"funcao=pesquisa&chave="+palavraChave,
+				success:function(resp){
+					$j('#corpo').html(resp);
+				},
+				error:function(){
+					console.log("error no ajax");
+				}
+			});
+		}
 	});
 
 

@@ -32,8 +32,8 @@
 
 
 
-			<input type='text' placeholder ='Ex: UN43NU7100AG' class='pesquisar'>
-			<input type='submit' value='Procurar' class = 'botao' >	
+			<input id="palavraChave_txt" type='text' placeholder ='Digite a palavra-chave...' class='pesquisar'>
+			<input id="btnPesquisar" type='button' value='Pesquisar' class = 'botao' >	
 		</div>
 
 		<svg id="voltar" class="bi bi-arrow-return-left" width="3em" height="3em" viewBox="0 0 16 16" 		fill="currentColor" xmlns="http://www.w3.org/2000/svg">

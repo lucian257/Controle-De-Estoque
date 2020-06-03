@@ -1,9 +1,9 @@
-<div id="id01" class="w3-modal">
+<div id="addmodal" class="w3-modal">
   <div class="w3-modal-content"> <!-- modal adicionar um novo produto -->
     <div class="w3-container">
-      <span onclick="document.getElementById('id01').style.display='none'"
+      <span onclick="document.getElementById('addmodal').style.display='none'"
       class="w3-button w3-display-topright">&times;</span>
-      <form id="add<?php echo $idPalete; ?>">
+      <form class="formAddProd" id="add<?php echo $idPalete; ?>">
       	<label>Nome</label>
       	<input type="text" name="nome_txt" placeholder="LN39G" required="required">
       	<br>
@@ -45,7 +45,7 @@
       	<label>Quantidade</label>
       	<input type="number" name="qtd_txt" value="0" required="required">
       	<br>
-      	<input id="btnAddProd" type="button" value="Confirmar" name="enviar_btn">
+      	<input id="btnAddProd" type="submit" value="Confirmar" name="enviar_btn">
       </form>
     </div>
   </div>

@@ -68,16 +68,26 @@
 		carregarPalete($_SESSION['id_palete'],$PDO);
 	}
 	function alteraProd($PDO){
+		$idProd = $_POST['id'];
 		$nome = filter_input(INPUT_POST, 'nome_txt', FILTER_SANITIZE_STRING);
 		$marca = filter_input(INPUT_POST, 'marca_slc', FILTER_SANITIZE_STRING);
 		$categoria = filter_input(INPUT_POST, 'categoria_slc', FILTER_SANITIZE_STRING);
-		$status = filter_input(INPUT_POST, 'status', FILTER_SANITIZE_NUMBER_INT);
+		$status = filter_input(INPUT_POST, 'status'.$idProd, FILTER_SANITIZE_NUMBER_INT);
 		$qtd = filter_input(INPUT_POST, 'qtd_txt', FILTER_SANITIZE_NUMBER_INT);
-		$idProd = $_POST['id'];
+		
+		$estado =[];
+		for ($i=1; $i <= 4; $i++) { 
+			if (isset($_POST['estado'.$i])) {
+				array_push($estado, $_POST['estado'.$i]);
+			}
+		}
 		
 		$objProdutos= new produtos($PDO);
-		$objProdutos->alteraProdutos($idProd, $nome, $marca, $estado, $categoria, $status, $qtd, $idPalete);
+		$objProdutos->alteraProduto($idProd, $nome, $marca, $estado, $categoria, $status, $qtd);
 		carregarPalete($_SESSION['id_palete'],$PDO);
+	}
+	function pesquisa($PDO){
+
 	}
 
 	if (isset($_POST['funcao']) && $_POST['funcao']!= NULL) {
@@ -97,6 +107,13 @@
 			saidaProd($PDO);
 		}else if($_POST['funcao']=="deleta"){
 			deleteProd($PDO);
+		}
+		else if($_POST['funcao']=="alteraProduto"){
+			alteraProd($PDO);
+		}else if($_POST['funcao']=="pesquisa"){
+			pesquisa($PDO);
+		}else{
+			echo "funcao indefinida!";
 		}
 	}else{
 		echo "funcao indefinida!";
