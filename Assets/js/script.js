@@ -363,7 +363,7 @@ $j(document).ready(function(){ // carregar pagina primeiro #6495ED #6495ED
 		}
 		if (selected.length > 0) {
 			$j(".acaoCheck").css("display","");
-			$j(".acaoCheck label").html("("+selected.length+")");
+			$j("#lblQtd").html("("+selected.length+")");
 		}else{
 			$j(".acaoCheck").css("display","none");
 		}

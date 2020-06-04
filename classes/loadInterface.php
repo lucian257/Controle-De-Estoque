@@ -118,7 +118,7 @@ class loadInterface{
 		<button onclick="document.getElementById('addmodal').style.display='block'"
 class="w3-btn w3-ripple w3-green bt_add">Adicionar novo produto</button>
 	<div class="acaoCheck" style="display: none;color: white"> 
-		<label></label>
+		<label id="lblQtd"></label>
 		<button id="btnEntradaCHK" class="btn btn-success">Entrada</button>
 		<button id="btnSaidaCHK" class="btn btn-info">Saída</button>
 		<button id="btnDeletaCHK" class="btn btn-danger">Deletar</button>
