@@ -38,7 +38,7 @@ class loadInterface{
 				}
 				if($id == 0){
 					//PALETE SEM ITENS
-					echo "<td id='v$virtual?$i:$n' >$i - $n</td>";
+					echo "<td id='v$virtual?$i:$n' >$n - $i</td>";
 
 					$virtual++;
 				}else{
@@ -48,7 +48,7 @@ class loadInterface{
 					}else{
 						if ($allPaletes[$id_array]["celula"] == 0) {
 							//PALETE COM PRODUTOS
-							echo "<td id='$id'>$i - $n</td>";
+							echo "<td id='$id'>$n - $i</td>";
 						}else{
 							if (!in_array($allPaletes[$id_array]["celula"], $grupoCelula)) {
 								array_push($grupoCelula, $allPaletes[$id_array]["celula"]);
@@ -79,7 +79,7 @@ class loadInterface{
 								$colM=($colunaMax-$colunaMin)+1;
 								$andM=($andarMax-$andarMin)+1;
 								//PALETE AGRUPADO
-								echo "<td id='$id' colspan='$colM' rowspan='$andM' >$i - $n</td>";
+								echo "<td id='$id' colspan='$colM' rowspan='$andM' >$n - $i</td>";
 
 							}
 						}
