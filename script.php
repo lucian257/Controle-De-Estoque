@@ -117,6 +117,11 @@
 		$dados = $objProdutos->pesquisaBD($chave);
 		$objProdutos->loadSearch($dados);
 	}
+	function nomeExist($PDO,$nome,$palete){
+		$objProdutos = new produtos($PDO);
+		$resp = $objProdutos->nomeExist($nome,$palete);
+		echo $resp;
+	}
 
 	if (isset($_POST['funcao']) && $_POST['funcao']!= NULL) {
 		if ($_POST['funcao']=="carregarRua"){
@@ -140,6 +145,8 @@
 			alteraProd($PDO);
 		}else if($_POST['funcao']=="pesquisa"){
 			pesquisa($PDO,$_POST['chave']);
+		}elseif($_POST['funcao']=="existeNome"){
+			nomeExist($PDO,$_POST['nome'],$_POST['palete']);
 		}else{
 			echo "funcao indefinida!";
 		}

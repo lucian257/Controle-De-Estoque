@@ -55,7 +55,7 @@ class produtos extends loadInterface{
 		$this->PDO->query("SET foreign_key_checks = 1");
 	}
 	public function pesquisaBD($nome){
-		$sql= $this->PDO->query("SELECT * FROM tbl_produtos INNER JOIN tbl_paletes ON tbl_produtos.fk_id_palete = tbl_paletes.id_palete WHERE (tbl_produtos.nome LIKE '%$nome%') OR (tbl_produtos.marca LIKE '%$nome%') OR (tbl_produtos.estado LIKE '%$nome%') OR (tbl_produtos.categoria LIKE '%$nome%')");
+		$sql= $this->PDO->query("SELECT * FROM tbl_produtos INNER JOIN tbl_paletes ON tbl_produtos.fk_id_palete = tbl_paletes.id_palete WHERE (tbl_produtos.nome LIKE '%$nome%') OR (tbl_produtos.marca LIKE '%$nome%') OR (tbl_produtos.estado LIKE '%$nome%')");
 		return $sql->fetchALL(PDO::FETCH_ASSOC);
 	}
 	public function loadProdutos($idPalete){
@@ -64,6 +64,15 @@ class produtos extends loadInterface{
 	}
 	public function loadSearch($dados){
 		$this->loadPesquisa($dados);
+	}
+	public function nomeExist($nome,$palete){
+		$id=false;
+		foreach ($this->dadosProdutos as $value) {
+			if ($value['nome']==$nome && $value['fk_id_palete']==$palete) {
+				$id=$value['id_produto'];
+			}
+		}
+		return $id;
 	}
 }
 ?>

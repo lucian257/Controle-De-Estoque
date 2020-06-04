@@ -4,7 +4,7 @@ $j(document).ready(function(){ // carregar pagina primeiro
 	var hours = 5; // Reset when storage is more than 24hours
 	var now = new Date().getTime();
 	var setupTime = localStorage.getItem('setupTime');
-	
+	var pesquisaNome = 0;
 	if (typeof localStorage.status =="undefined" || (now-setupTime > hours*60*60*1000) ){
 			    
 		localStorage.clear()
@@ -122,18 +122,74 @@ $j(document).ready(function(){ // carregar pagina primeiro
 	$j('#corpo').on("submit",".formAddProd",function(aux){
 		aux.preventDefault();
 		var form = $j(this);
-		var dados = form.serialize();
-		dados +="&id="+form.prop("id").substr(3);;
-		dados +="&funcao=addProduto"; 
+		if(pesquisaNome == 0){
+			var dados = form.serialize();
+			dados +="&id="+form.prop("id").substr(3);
+			dados +="&funcao=addProduto&categoria_slc=TV"; 
+			$j.ajax({
+				type:'POST',
+				dataType:"html",
+				async: false,
+				url:'script.php',
+				data:dados,
+				success:function(resp){
+					$j('#corpo').html(resp);
+				},
+				error:function(){
+					console.log("error no ajax");
+				}
+			});
+			
+		}else{
+			var id = form.prop("id").substr(3);
+			var valor = $j("#qtd_txt2").val();
+			$j.ajax({
+				type:'POST',
+				dataType:"html",
+				async: false,
+				url:'script.php',
+				data:"funcao=entrada&id="+pesquisaNome+"&qtd="+valor,
+				success:function(resp){
+					$j('#corpo').html(resp);
+
+				},
+				error:function(){
+					console.log("error no ajax");
+				}
+			});
+		}
+		pesquisaNome=0;
+		
+		
+	});
+	$j("#corpo").on("keydown","#txtNome",function(){
+		$j(".velhoRest").css("display", "none");
+		$j(".novoRest").css("display", "none");
+		$j("#btnNome").css("display", "block");
+	});
+	$j("#corpo").on("click","#btnNome",function(){
+		$j(this).css("display", "none");
+		var nome = $j("#txtNome").val();
+		var palete = $j(".formAddProd").prop("id").substr(3);
 		$j.ajax({
 			type:'POST',
-			dataType:"html",
+			dataType:"text",
 			async: false,
 			url:'script.php',
-			data:dados,
+			data:"funcao=existeNome&nome="+nome+"&palete="+palete,
 			success:function(resp){
-				$j('#corpo').html(resp);
-
+				if (resp) {
+					pesquisaNome = resp;
+					$j(".velhoRest").css("display", "block");
+					$j("#qtd_txt2").removeAttr("disabled");
+					$j("#qtd_txt").prop("disabled","disabled");
+				}else{
+					pesquisaNome = 0;
+					$j(".novoRest").css("display", "block");
+					$j("#qtd_txt2").prop("disabled","disabled");
+					$j("#qtd_txt").removeAttr("disabled");
+				}
+				
 			},
 			error:function(){
 				console.log("error no ajax");
@@ -164,29 +220,32 @@ $j(document).ready(function(){ // carregar pagina primeiro
 		
 	});
 	$j("#corpo").on("click", "#btnSaida",function(){
-		var valor = prompt("Quantidade de saída:");
-		var valor = valor.replace(/[-]+/gi, '');
-		var qtd = $j(this).parent().parent().find(".qtd").html();
-		if((valor != null) && (valor <= qtd)){
-			var id = $j(this).parent().parent().prop("id");
-			id.substr(3);
-			$j.ajax({
-				type:'POST',
-				dataType:"html",
-				async: false,
-				url:'script.php',
-				data:"funcao=saida&id="+id+"&qtd="+valor,
-				success:function(resp){
-					$j('#corpo').html(resp);
-				},
-				error:function(){
-					console.log("error no ajax");
-				}
-			})
-		}else{
-			alert("Valor inválido!");
+		var valor = parseInt(prompt("Quantidade de saída:"), 10);
+		var qtd = parseInt($j(this).parent().parent().find(".qtd").html(), 10);
+		
+		if(!Number.isNaN(valor)){
+			if((valor != null) && (valor <= qtd)){
+				var id = $j(this).parent().parent().prop("id");
+				id.substr(3);
+				$j.ajax({
+					type:'POST',
+					dataType:"html",
+					async: false,
+					url:'script.php',
+					data:"funcao=saida&id="+id+"&qtd="+valor,
+					success:function(resp){
+						$j('#corpo').html(resp);
+					},
+					error:function(){
+						console.log("error no ajax");
+					}
+				})
+			}else{
+				alert("Valor inválido!");
+			}
 		}
-		;
+		
+		
 	});
 	$j("#corpo").on("click", "#btnDeleta",function(){
 		var valor = confirm("Deseja deletar?");
@@ -215,7 +274,7 @@ $j(document).ready(function(){ // carregar pagina primeiro
 		var form = $j(this);
 		var dados = form.serialize();
 		dados +="&id="+form.prop("id").substr(3);
-		dados +="&funcao=alteraProduto"; 
+		dados +="&funcao=alteraProduto&categoria_slc=TV"; 
 		$j.ajax({
 				type:'POST',
 				dataType:"html",
@@ -268,6 +327,7 @@ $j(document).ready(function(){ // carregar pagina primeiro
 				}
 			});
 	 	}
-	 });
+	});
+	
 
 });

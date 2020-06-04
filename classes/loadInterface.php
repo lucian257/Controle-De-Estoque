@@ -123,7 +123,6 @@ class="w3-btn w3-ripple w3-green bt_add">Adicionar novo produto</button>
 			<tr class='cabeçalho'>
 	    		<th>Nome</th>
 	    		<th>Marca</th>
-	    		<th>Categoria</th>
 	    		<th>Estado</th>
 	    		<th>Quantidade</th>
 	    		<th>Status</th>
@@ -140,8 +139,7 @@ class="w3-btn w3-ripple w3-green bt_add">Adicionar novo produto</button>
 			?>
 			<tr id="<?php echo $value['id_produto']; ?>" class="valores">
 				<td><?php echo $value['nome']; ?></td>
-				<td><?php echo ($value['marca']=="NULL"?"Sem Marca":$value['marca']); ?></td>
-				<td><?php echo ($categoria_formatado=="NULL"?"Indefinida":$categoria_formatado); ?></td>
+				<td><?php echo $value['marca']; ?></td>
 				<td><?php echo ($estado_formatado==""?"Indefinido":$estado_formatado); ?></td>
 				<td class="qtd"><?php echo $value['quantidade']; ?></td>
 				<td><?php echo ($value['status']?"Desmontando":"Em estoque"); ?></td>
@@ -172,7 +170,6 @@ class="w3-btn w3-ripple w3-green bt_add">Adicionar novo produto</button>
 	    		<th>Andar</th>
 	    		<th>Nome</th>
 	    		<th>Marca</th>
-	    		<th>Categoria</th>
 	    		<th>Estado</th>
 	    		<th>Quantidade</th>
 	    		<th>Status</th>
@@ -182,7 +179,6 @@ class="w3-btn w3-ripple w3-green bt_add">Adicionar novo produto</button>
 		foreach ($dados as $value) {
 			$estado_formatado = str_replace("_", " ", $value['estado']);
             $estados = explode("/", $estado_formatado);
-            $categoria_formatado = str_replace("_", " ", $value['categoria']);
 			$ruas=["A","B","C","D","E","F"];
 			?>
 			<tr id="<?php echo $value['id_produto']; ?>">
@@ -190,8 +186,7 @@ class="w3-btn w3-ripple w3-green bt_add">Adicionar novo produto</button>
 				<td><?php echo $value['coluna']; ?></td>
 				<td><?php echo $value['andar']; ?></td>
 				<td><?php echo $value['nome']; ?></td>
-				<td><?php echo ($value['marca']=="NULL"?"Sem Marca":$value['marca']); ?></td>
-				<td><?php echo ($categoria_formatado=="NULL"?"Indefinida":$categoria_formatado); ?></td>
+				<td><?php echo $value['marca']; ?></td>
 				<td><?php echo ($estado_formatado=="NULL"?"Indefinido":$estado_formatado); ?></td>
 				<td class="qtd"><?php echo $value['quantidade']; ?></td>
 				<td><?php echo ($value['status']?"Desmontando":"Em estoque"); ?></td>

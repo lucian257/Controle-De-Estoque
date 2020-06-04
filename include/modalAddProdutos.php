@@ -6,22 +6,32 @@
 	  <form class="formAddProd form-group" id="add<?php echo $idPalete; ?>" style="margin-top:320px;">
 	  <div class="form-group">
       	<label>Nome</label>
-		  <input type="text" name="nome_txt" placeholder="LN39G" required="required" class="form-control">
+		  <input type="text" id="txtNome" name="nome_txt" placeholder="LN39G" required="required" class="form-control">
+      
      </div>
+     <button type="button" style="display: none" id="btnNome">Pesquisar Nome</button>
       	<br>
+        <div class="velhoRest" style="display: none">
+          
+            <label>Produto já está cadastrado</label>
+            <label>Digite a quantidade para adicionar:</label>
+            <input min="1" step="1" type="number" name="qtd2" id="qtd_txt2" value="0" class="form-control">
+            <input type="submit" value="Confirmar" name="enviar_btn2" class="btnAddProd btn btn-info">
+         
+        </div>
+        <div class="novoRest" style="display: none;">
       	<label>Marca</label>
-      	<select name="marca_slc" class="form-control">
-      		<option value="NULL">Nenhuma</option> 
-  			<option value="LG">LG</option>
-  			<option value="Samsung">Samsung</option>
-  			<option value="Philco">Philco</option>
-  			<option value="Phillips">Phillips</option>
-  			<option value="Sony">Sony</option>
-  			<option value="CCE">CCE</option>
-  			<option value="AOC">AOC</option>
-  			<option value="Panasony">Panasony</option>
-  			<option value="TCL">TCL</option>
-  			<option value="Outros">Outros</option>
+        	<select name="marca_slc" class="form-control">
+    			<option value="LG">LG</option>
+    			<option value="Samsung">Samsung</option>
+    			<option value="Philco">Philco</option>
+    			<option value="Phillips">Phillips</option>
+    			<option value="Sony">Sony</option>
+    			<option value="CCE">CCE</option>
+    			<option value="AOC">AOC</option>
+    			<option value="Panasony">Panasony</option>
+    			<option value="TCL">TCL</option>
+    			<option value="Outros">Outros</option>
       	</select>
       	<br>
 		  <label class="form-check-label">Estado</label>
@@ -48,24 +58,13 @@
 		  <input type="checkbox" name="estado4" value="Na_caixa" class="form-check-input">Na caixa
 		  </label>
 		  </div>
-      	
-      	<br>
-      	<label>categoria</label>
-      	<select name="categoria_slc" class="form-control">
-      		<option value="NULL">Nenhuma</option> 
-  			<option value="TV" selected="selected">TV</option>
-  			<option value="LED">LED</option>
-  			<option value="PLACAS">PLACAS</option>
-  			<option value="AUTO_FALANTE">AUTO FALANTE</option>
-  			<option value="OUTROS">OUTROS</option>
-      	</select>
-      	<br>
+      <br>
 		  <label>Status</label>
 		  <div class="form-check">
   		<label class="form-check-label">
   			<input type="radio" name="status" value="0" checked="checked"> Em estoque
   		</label>
-		</div>
+		  </div>
 
 		<div class="form-check">
   <label class="form-check-label">
@@ -76,10 +75,11 @@
 		  <br>
 		  <div class="form-group">
   			<label>Quantidade:</label>
-  			<input min="1" step="1" type="number" name="qtd_txt" value="0" required="required" class="form-control">
+  			<input min="1" step="1" type="number" id="qtd_txt" name="qtd_txt" value="0" required="required" class="form-control">
 		 </div>
 
-      	<input id="btnAddProd" type="submit" value="Confirmar" name="enviar_btn" class="btn btn-info">
+      	<input type="submit" value="Confirmar" name="enviar_btn" class="btnAddProd btn btn-info">
+      </div>
       </form>
     </div>
   </div>
