@@ -122,6 +122,37 @@
 		$resp = $objProdutos->nomeExist($nome,$palete);
 		echo $resp;
 	}
+	function multiEntrada($PDO,$id,$valor){
+		$objProdutos= new produtos($PDO);
+		$id = explode(",", $id);
+		$objProdutos->multiEntradaProdutos($id,$valor);
+		if(isset($_SESSION['pesquisa'])){
+			reloadPagina($PDO,"pesquisa");
+		}else{
+			reloadPagina($PDO,"palete");
+		}
+	}
+	function multiSaida($PDO,$id,$valor){
+		$objProdutos= new produtos($PDO);
+		$id = explode(",", $id);
+		$objProdutos->multiSaidaProdutos($id,$valor);
+		if(isset($_SESSION['pesquisa'])){
+			reloadPagina($PDO,"pesquisa");
+		}else{
+			reloadPagina($PDO,"palete");
+		}
+	}
+	function multiDelete($PDO,$id){
+		$objProdutos= new produtos($PDO);
+		$id = explode(",", $id);
+		$objProdutos->multiDeletaProdutos($id);
+		if(isset($_SESSION['pesquisa'])){
+			reloadPagina($PDO,"pesquisa");
+		}else{
+			reloadPagina($PDO,"palete");
+		}
+		
+	}
 
 	if (isset($_POST['funcao']) && $_POST['funcao']!= NULL) {
 		if ($_POST['funcao']=="carregarRua"){
@@ -147,6 +178,12 @@
 			pesquisa($PDO,$_POST['chave']);
 		}elseif($_POST['funcao']=="existeNome"){
 			nomeExist($PDO,$_POST['nome'],$_POST['palete']);
+		}elseif ($_POST['funcao']=="multiEntrada") {
+			multiEntrada($PDO,$_POST['id'],$_POST['qtd']);
+		}elseif ($_POST['funcao']=="multiSaida") {
+			multiSaida($PDO,$_POST['id'],$_POST['qtd']);
+		}elseif ($_POST['funcao']=="multiDeleta") {
+			multiDelete($PDO,$_POST['id']);
 		}else{
 			echo "funcao indefinida!";
 		}

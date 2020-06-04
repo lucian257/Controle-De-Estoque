@@ -1,19 +1,15 @@
-<div id="id<?php echo $value['id_produto']; ?>" class="w3-modal">
+<div id="multiModal" class="w3-modal">
   <div class="w3-modal-content w3-animate-zoom modal-sm"> <!-- modal alterar produto -->
     <div class="w3-container modall">
-      <span onclick="document.getElementById('id<?php echo $value['id_produto']; ?>').style.display='none'"
+      <span onclick="document.getElementById('multiModal').style.display='none'"
       class="w3-button w3-display-topright">&times;</span>
-      <form class="alterar_prod form-group" id="alt<?php echo $value['id_produto'];?>" style="margin-top:350px;">
-          <div class="form-group">
-            <label>Nome</label>
-            <input type="text" name="nome_txt" placeholder="LN39G" value="<?php echo $value['nome']; ?>" required="required" class="form-control">
-          </div>
+      <form class="multiAlterar_prod form-group" style="margin-top:350px;">
             <br>
             <label>Marca</label>
             <select name="marca_slc" class="form-control">
-                <option value="LG" <?php echo ($value['marca']=="LG"?"selected":""); ?> >LG</option>
-                <option value="Samsung" <?php echo ($value['marca']=="Samsung"?"selected":""); ?> >Samsung</option>
-                <option value="Philco" <?php echo ($value['marca']=="Philco"?"selected":""); ?> >Philco</option>
+                <option value="LG">LG</option>
+                <option value="Samsung">Samsung</option>
+                <option value="Philco"> >Philco</option>
                 <option value="Phillips" <?php echo ($value['marca']=="Phillips"?"selected":""); ?> >Phillips</option>
                 <option value="Sony" <?php echo ($value['marca']=="Sony"?"selected":""); ?> >Sony</option>
                 <option value="CCE" <?php echo ($value['marca']=="CCE"?"selected":""); ?> >CCE</option>

@@ -1,10 +1,11 @@
 var $j = jQuery.noConflict();
-$j(document).ready(function(){ // carregar pagina primeiro
+$j(document).ready(function(){ // carregar pagina primeiro #6495ED #6495ED
 
 	var hours = 5; // Reset when storage is more than 24hours
 	var now = new Date().getTime();
 	var setupTime = localStorage.getItem('setupTime');
 	var pesquisaNome = 0;
+	var selected = [];
 	if (typeof localStorage.status =="undefined" || (now-setupTime > hours*60*60*1000) ){
 			    
 		localStorage.clear()
@@ -241,7 +242,7 @@ $j(document).ready(function(){ // carregar pagina primeiro
 					}
 				})
 			}else{
-				alert("Valor inválido!");
+				alert("Valor inválido ou maior que quantidade!");
 			}
 		}
 		
@@ -306,7 +307,10 @@ $j(document).ready(function(){ // carregar pagina primeiro
 					console.log("error no ajax");
 				}
 			});
+		}else{
+			$j('#corpo').html("<h2 style='color:#dedede;'>Não encontrado!</h2>");
 		}
+
 	});
 
 	$j("#palavraChave_txt").keydown(function(event){ // Entrar apertando enter
@@ -328,6 +332,132 @@ $j(document).ready(function(){ // carregar pagina primeiro
 			});
 	 	}
 	});
-	
+
+
+
+	$j("#corpo").on("change",".checks",function(){
+		var valor = $j(this).data("chk");
+		if(valor=="all"){
+			if($j(this).is(':checked')){
+				selected = [];
+				$j(".checks").each(function(chave,iten){
+					$j(iten).prop("checked","checked");
+					if (iten.dataset.chk != "all") {
+						selected.push(parseInt(iten.dataset.chk,10));
+					}
+				});
+			}else{
+				$j(".checks").each(function(chave,iten){
+					$j(iten).prop("checked",false);
+				});
+				selected = [];
+			}
+			
+		}else{
+			if ($j(this).is(':checked')) {
+				selected.push(valor);
+			}else{
+				selected.splice(selected.indexOf(valor), 1);	
+				$j("#chk_all").prop("checked",false);
+			}
+		}
+		if (selected.length > 0) {
+			$j(".acaoCheck").css("display","");
+			$j(".acaoCheck label").html("("+selected.length+")");
+		}else{
+			$j(".acaoCheck").css("display","none");
+		}
+		
+			
+	});
+
+	$j("#corpo").on("click", "#btnEntradaCHK",function(){
+		var valor = prompt("Quantidade de entrada:");
+		var valor = valor.replace(/[-]+/g, '');
+		if(valor != null){
+			var id = selected;
+			$j.ajax({
+				type:'POST',
+				dataType:"html",
+				async: false,
+				url:'script.php',
+				data:"funcao=multiEntrada&id="+id+"&qtd="+valor,
+				success:function(resp){
+					$j('#corpo').html(resp);
+					selected = [];
+				},
+				error:function(){
+					console.log("error no ajax");
+				}
+			});
+		}
+		
+	});
+	$j("#corpo").on("click", "#btnSaidaCHK",function(){
+		var valor = parseInt(prompt("Quantidade de saída:"), 10);
+		var menor = -1;
+		var elements = $j(".valores");
+		elements.each(function(chave,iten){
+			var id = parseInt($j(iten).prop("id"),10);
+			if (selected.indexOf(id) != -1) {
+				var qtd = parseInt($j(iten).find(".qtd").html(),10);
+				if (menor == -1) {
+					menor = qtd;
+				}else{
+					if (qtd < menor) {
+						menor = qtd;
+					}
+				}
+			}
+
+			
+		});
+				
+		if(!Number.isNaN(valor)){
+			if((valor != null) && (valor <= menor)){
+				var id = selected;
+				$j.ajax({
+					type:'POST',
+					dataType:"html",
+					async: false,
+					url:'script.php',
+					data:"funcao=multiSaida&id="+id+"&qtd="+valor,
+					success:function(resp){
+						$j('#corpo').html(resp);
+						selected = [];
+					},
+					error:function(){
+						console.log("error no ajax");
+					}
+				})
+			}else{
+				alert("Valor inválido ou maior que quantidade!");
+			}
+		}
+		
+		
+	});
+
+	$j("#corpo").on("click", "#btnDeletaCHK",function(){
+		var valor = confirm("Deseja deletar "+selected.length+" produtos selecionados?");
+		if (valor) {
+			var id = selected;
+			$j.ajax({
+				type:'POST',
+				dataType:"html",
+				async: false,
+				url:'script.php',
+				data:"funcao=multiDeleta&id="+id,
+				success:function(resp){
+					$j('#corpo').html(resp);
+					selected = [];
+				},
+				error:function(){
+					console.log("error no ajax");
+				}
+			});
+		}
+		
+	});
 
 });

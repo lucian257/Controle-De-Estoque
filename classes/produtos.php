@@ -74,5 +74,26 @@ class produtos extends loadInterface{
 		}
 		return $id;
 	}
+	public function multiEntradaProdutos($id,$valor){
+		foreach ($id as $value){
+			$this->PDO->query("UPDATE tbl_produtos SET quantidade=quantidade+$valor WHERE id_produto='$value'");
+			$this->PDO->query("INSERT INTO tbl_registros(data, tipo, fk_id_produto) VALUES (Now(), '0', '$value') ");
+		}
+		
+	}
+	public function multiSaidaProdutos($id,$valor){
+		foreach ($id as  $value) {
+			$this->PDO->query("UPDATE tbl_produtos SET quantidade=quantidade-$valor WHERE id_produto=$value");
+			$this->PDO->query("INSERT INTO tbl_registros(data, tipo, fk_id_produto) VALUES (Now(), '1', '$value') ");
+			$this->testaQtd($value);
+		}	
+	}
+	public function multiDeletaProdutos($id){
+		$this->PDO->query("SET foreign_key_checks = 0");
+		foreach ($id as  $value) {
+			$this->PDO->query("DELETE FROM tbl_produtos WHERE id_produto = $value");
+		}	
+		$this->PDO->query("SET foreign_key_checks = 1");
+	}
 }
 ?>

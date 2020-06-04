@@ -1,5 +1,7 @@
 @charset 'utf-8';
-
+    input[type="text"] {
+    background-color: #ADD8E6;
+}
 .pesquisar{
     width: 25%;
     height: 70px;

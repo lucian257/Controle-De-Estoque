@@ -107,20 +107,28 @@ class loadInterface{
 		//carrega todos os produtos de um patele
 		//echo "<pre>";
 		//echo print_r($allProdutos);
-		include("include/modalAddProdutos.php");
+		if ($allProdutos != false) {
+			include("include/modalAddProdutos.php");
 		foreach ($allProdutos as $value){ 
 			$estado_formatado = str_replace("_", " ", $value['estado']);
             $estados = explode("/", $estado_formatado);
-            $categoria_formatado = str_replace("_", " ", $value['categoria']);
 			include("include/modalAltProdutos.php");
 		}
 		?>
 		<button onclick="document.getElementById('addmodal').style.display='block'"
 class="w3-btn w3-ripple w3-green bt_add">Adicionar novo produto</button>
+	<div class="acaoCheck" style="display: none;color: white"> 
+		<label></label>
+		<button id="btnEntradaCHK" class="btn btn-success">Entrada</button>
+		<button id="btnSaidaCHK" class="btn btn-info">Saída</button>
+		<button id="btnDeletaCHK" class="btn btn-danger">Deletar</button>
+	</div>
 		<?php
 		echo "
 		<table class='table tbl_produtos table-bordered'>
 			<tr class='cabeçalho'>
+				<th><input type='checkbox' id='chk_all' data-chk='all' class='checks'>
+  				<label for='todos'>todos</label></th>
 	    		<th>Nome</th>
 	    		<th>Marca</th>
 	    		<th>Estado</th>
@@ -134,12 +142,11 @@ class="w3-btn w3-ripple w3-green bt_add">Adicionar novo produto</button>
 		foreach ($allProdutos as $value){ 
 			$estado_formatado = str_replace("_", " ", $value['estado']);
             $estados = explode("/", $estado_formatado);
-            $categoria_formatado = str_replace("_", " ", $value['categoria']);
-			
 			?>
 			<tr id="<?php echo $value['id_produto']; ?>" class="valores">
+				<td><input type='checkbox' data-chk='<?php echo $value['id_produto']; ?>' class='checks'></td>
 				<td><?php echo $value['nome']; ?></td>
-				<td><?php echo $value['marca']; ?></td>
+				<td  id="marcaT"><?php echo $value['marca']; ?></td>
 				<td><?php echo ($estado_formatado==""?"Indefinido":$estado_formatado); ?></td>
 				<td class="qtd"><?php echo $value['quantidade']; ?></td>
 				<td><?php echo ($value['status']?"Desmontando":"Em estoque"); ?></td>
@@ -153,18 +160,34 @@ class="w3-btn w3-ripple w3-green bt_add">Adicionar novo produto</button>
 		<?php }
 
 		echo "</table>";
+		}else{
+			include("include/modalAddProdutos.php");
+			?><button onclick="document.getElementById('addmodal').style.display='block'"
+class="w3-btn w3-ripple w3-green bt_add">Adicionar novo produto</button>
+			<h2 style='color:#dedede;'>Nenhum há nenhum produto!</h2><?php
+			}
 	}
 	protected function loadPesquisa($dados){
 		//carrega pesquisa
-		foreach ($dados as $value) {
+		if ($dados != false) {
+			foreach ($dados as $value) {
 			$estado_formatado = str_replace("_", " ", $value['estado']);
             $estados = explode("/", $estado_formatado);
             $categoria_formatado = str_replace("_", " ", $value['categoria']);
 			include("include/modalAltProdutos.php");
-		}
+		} ?>
+		<div class="acaoCheck" style="display: none;color: white"> 
+			<label></label>
+			<button id="btnEntradaCHK" class="btn btn-success">Entrada</button>
+			<button id="btnSaidaCHK" class="btn btn-info">Saída</button>
+			<button id="btnDeletaCHK" class="btn btn-danger">Deletar</button>
+		</div>
+		<?php
 		echo "
 		<table class='table tbl_produtos table-bordered' style='color:white'>
 			<tr class='cabeçalho'>
+				<th><input type='checkbox' id='chk_all' data-chk='all' class='checks'>
+  				<label for='todos'>todos</label></th>
 				<th>Rua</th>
 	    		<th>Coluna</th>
 	    		<th>Andar</th>
@@ -181,7 +204,8 @@ class="w3-btn w3-ripple w3-green bt_add">Adicionar novo produto</button>
             $estados = explode("/", $estado_formatado);
 			$ruas=["A","B","C","D","E","F"];
 			?>
-			<tr id="<?php echo $value['id_produto']; ?>">
+			<tr id="<?php echo $value['id_produto']; ?>" class="valores">
+				<td><input type='checkbox' data-chk='<?php echo $value['id_produto']; ?>' class='checks'></td>
 				<td><?php echo $ruas[$value['fk_id_rua']-1]; ?></td>
 				<td><?php echo $value['coluna']; ?></td>
 				<td><?php echo $value['andar']; ?></td>
@@ -201,7 +225,9 @@ class="w3-btn w3-ripple w3-green bt_add">Adicionar novo produto</button>
 		<?php }
 
 		echo "</table>";
-		
+		}else{
+			echo "<h2 style='color:#dedede;'>Não existe esse rgistro no sistema</h2>";
+		}
 
 		 
 	}
