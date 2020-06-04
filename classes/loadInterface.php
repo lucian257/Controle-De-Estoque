@@ -107,7 +107,8 @@ class loadInterface{
 		//carrega todos os produtos de um patele
 		//echo "<pre>";
 		//echo print_r($allProdutos);
-		include("include/modalAddProdutos.php");
+		if ($allProdutos != false) {
+			include("include/modalAddProdutos.php");
 		foreach ($allProdutos as $value){ 
 			$estado_formatado = str_replace("_", " ", $value['estado']);
             $estados = explode("/", $estado_formatado);
@@ -140,7 +141,7 @@ class="w3-btn w3-ripple w3-green bt_add">Adicionar novo produto</button>
 			?>
 			<tr id="<?php echo $value['id_produto']; ?>" class="valores">
 				<td><?php echo $value['nome']; ?></td>
-				<td><?php echo ($value['marca']=="NULL"?"Sem Marca":$value['marca']); ?></td>
+				<td id="marcaT"><?php echo ($value['marca']=="NULL"?"Sem Marca":$value['marca']); ?></td>
 				<td><?php echo ($categoria_formatado=="NULL"?"Indefinida":$categoria_formatado); ?></td>
 				<td><?php echo ($estado_formatado==""?"Indefinido":$estado_formatado); ?></td>
 				<td class="qtd"><?php echo $value['quantidade']; ?></td>
@@ -155,10 +156,17 @@ class="w3-btn w3-ripple w3-green bt_add">Adicionar novo produto</button>
 		<?php }
 
 		echo "</table>";
+		}else{
+			include("include/modalAddProdutos.php");
+			?><button onclick="document.getElementById('addmodal').style.display='block'"
+class="w3-btn w3-ripple w3-green bt_add">Adicionar novo produto</button>
+			<h2 style='color:#dedede;'>Nenhum há nenhum produto!</h2><?php
+			}
 	}
 	protected function loadPesquisa($dados){
 		//carrega pesquisa
-		foreach ($dados as $value) {
+		if ($dados != false) {
+			foreach ($dados as $value) {
 			$estado_formatado = str_replace("_", " ", $value['estado']);
             $estados = explode("/", $estado_formatado);
             $categoria_formatado = str_replace("_", " ", $value['categoria']);
@@ -206,7 +214,9 @@ class="w3-btn w3-ripple w3-green bt_add">Adicionar novo produto</button>
 		<?php }
 
 		echo "</table>";
-		
+		}else{
+			echo "<h2 style='color:#dedede;'>Não encontrado</h2>";
+		}
 
 		 
 	}

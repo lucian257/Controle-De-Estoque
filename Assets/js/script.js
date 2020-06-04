@@ -247,7 +247,10 @@ $j(document).ready(function(){ // carregar pagina primeiro
 					console.log("error no ajax");
 				}
 			});
+		}else{
+			$j('#corpo').html("<h2 style='color:#dedede;'>Não encontrado!</h2>");
 		}
+
 	});
 
 	$j("#palavraChave_txt").keydown(function(event){ // Entrar apertando enter
@@ -269,5 +272,32 @@ $j(document).ready(function(){ // carregar pagina primeiro
 			});
 	 	}
 	 });
+
+	$j(".valoes").on("click", "#btnSaida",function(){
+		var valor = prompt("Quantidade de saída:");
+		var valor = valor.replace(/[-]+/gi, '');
+		var qtd = $j(this).parent().parent().find(".qtd").html();
+		if((valor != null) && (valor <= qtd)){
+			var id = $j(this).parent().parent().prop("id");
+			id.substr(3);
+			$j.ajax({
+				type:'POST',
+				dataType:"html",
+				async: false,
+				url:'script.php',
+				data:"funcao=saida&id="+id+"&qtd="+valor,
+				success:function(resp){
+					$j('#corpo').html(resp);
+				},
+				error:function(){
+					console.log("error no ajax");
+				}
+			})
+		}else{
+			alert("Valor inválido!");
+		}
+		;
+	});
+
 
 });
