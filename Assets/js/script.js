@@ -1,5 +1,5 @@
 var $j = jQuery.noConflict();
-$j(document).ready(function(){ // carregar pagina primeiro
+$j(document).ready(function(){ // carregar pagina primeiro #6495ED #6495ED
 
 	var hours = 5; // Reset when storage is more than 24hours
 	var now = new Date().getTime();
@@ -299,5 +299,21 @@ $j(document).ready(function(){ // carregar pagina primeiro
 		;
 	});
 
+	var checkTodos = $j("#todos");
+checkTodos.click(function () {
+  if ( $j(this).is(':checkbox[name=todos]') ){
+    $j('#scales').prop("checked", true);
+  }else{
+    $j('#scales').prop("checked", false);
+  }
+}); // n ta funfando
+
+
+	$j("#palavraChave_txt").keydown(function(){
+        $j("#palavraChave_txt").css("background-color", "#6495ED");
+    });
+    $j("#palavraChave_txt").keyup(function(){
+        $j("#palavraChave_txt").css("background-color", "#ADD8E6");
+    });
 
 });

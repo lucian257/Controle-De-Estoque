@@ -122,6 +122,8 @@ class="w3-btn w3-ripple w3-green bt_add">Adicionar novo produto</button>
 		echo "
 		<table class='table tbl_produtos table-bordered'>
 			<tr class='cabeçalho'>
+				<th><input type='checkbox' id='todos' name='todos'>
+  				<label for='todos'>todos</label></th>
 	    		<th>Nome</th>
 	    		<th>Marca</th>
 	    		<th>Categoria</th>
@@ -140,6 +142,7 @@ class="w3-btn w3-ripple w3-green bt_add">Adicionar novo produto</button>
 			
 			?>
 			<tr id="<?php echo $value['id_produto']; ?>" class="valores">
+				<td><input type='checkbox' id='scales' name='scales'	></td>
 				<td><?php echo $value['nome']; ?></td>
 				<td id="marcaT"><?php echo ($value['marca']=="NULL"?"Sem Marca":$value['marca']); ?></td>
 				<td><?php echo ($categoria_formatado=="NULL"?"Indefinida":$categoria_formatado); ?></td>
@@ -215,7 +218,7 @@ class="w3-btn w3-ripple w3-green bt_add">Adicionar novo produto</button>
 
 		echo "</table>";
 		}else{
-			echo "<h2 style='color:#dedede;'>Não encontrado</h2>";
+			echo "<h2 style='color:#dedede;'>Não existe esse rgistro no sistema</h2>";
 		}
 
 		 
