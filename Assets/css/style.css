@@ -71,8 +71,8 @@
     height: 40px;
 }
 .botao:hover{
-    background: ivory;
-    color: #023e7d;
+    background: #023e7d;;
+    color: #fff;
 }
 
 .busca{
@@ -172,6 +172,13 @@
    
 }
 
+#lblQtd{
+    font-size: 20px;
+    position: relative;
+    left:23%;
+    font-style: oblique;
+}
+
 .cabeçalho{
     color: white;
 }
@@ -186,7 +193,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    height: 200px;
     
 }
 
@@ -245,6 +252,11 @@
     width: 60%;
 }
 
+#lblQtd{
+    
+    left:250px;
+    
+}
 
 
 }

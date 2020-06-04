@@ -169,6 +169,7 @@ $j(document).ready(function(){ // carregar pagina primeiro #6495ED #6495ED
 		$j("#btnNome").css("display", "block");
 	});
 	$j("#corpo").on("click","#btnNome",function(){
+		$j(".modall").css("height", 700)
 		$j(this).css("display", "none");
 		var nome = $j("#txtNome").val();
 		var palete = $j(".formAddProd").prop("id").substr(3);

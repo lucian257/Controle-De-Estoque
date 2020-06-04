@@ -3,7 +3,7 @@
     <div class="w3-container modall">
       <span onclick="document.getElementById('addmodal').style.display='none'"
       class="w3-button w3-display-topright">&times;</span>
-	  <form class="formAddProd form-group" id="add<?php echo $idPalete; ?>" style="position: relative; top:20px;">
+	  <form class="formAddProd form-group" id="add<?php echo $idPalete; ?>" style="position: relative;">
 	  
       	<label>Nome</label>
 		  <input type="text" id="txtNome" name="nome_txt" placeholder="LN39G" required="required" class="form-control">

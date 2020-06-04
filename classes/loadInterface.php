@@ -226,7 +226,7 @@ class="w3-btn w3-ripple w3-green bt_add" >Adicionar novo produto</button>
 
 		echo "</table>";
 		}else{
-			echo "<h2 style='color:#dedede;'>Não existe esse rgistro no sistema</h2>";
+			echo "<h2 style='color:#fff; text-align:center; position: relative; top:20px;'>Não existe esse registro no sistema</h2>";
 		}
 
 		 
