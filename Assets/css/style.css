@@ -167,6 +167,9 @@
 .tbl_produtos{
     text-align: center;
     color: white;
+    position: relative;
+    top:20px;
+   
 }
 
 .cabeçalho{
@@ -175,14 +178,15 @@
 
 .tbl_produtos .valores{
     color: white;
+    position: relative;
+    
 }
 
 .modall{
     display: flex;
     justify-content: center;
     align-items: center;
-    max-height:350px;
-    overflow-y: scroll;
+    
     
 }
 
@@ -216,12 +220,45 @@
 }
 
 
+.bt{
+    margin:5px; 
+}
+.botoes_ac{
+    width: 800px;
+}
+
+.tbl_produtos{
+    min-width: 700px;
+}
+
+.botao{
+    width:35%;
+    left:35%;
+}
+
+.pesquisar{
+    width: 40%;
+    left:8px;
+}
+
+.pesquisar:hover{
+    width: 60%;
+}
+
+
+
+}
+
 @media (min-width:767px) and (max-width:1024px){
     #div_inicial{
         width: 100%;
     }
     #enter{
         left: 43%;
+    }
+
+    .bt{
+        margin:5px; 
     }
 
     

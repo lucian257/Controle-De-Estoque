@@ -151,10 +151,10 @@ class="w3-btn w3-ripple w3-green bt_add">Adicionar novo produto</button>
 				<td class="qtd"><?php echo $value['quantidade']; ?></td>
 				<td><?php echo ($value['status']?"Desmontando":"Em estoque"); ?></td>
 				<td class="botoes_ac">
-					<button id="btnEntrada" class="btn btn-success">Entrada</button>
-					<button id="btnSaida" class="btn btn-info">Saída</button>
-					<button onclick="document.getElementById('id<?php echo $value['id_produto']; ?>').style.display='block'" id="btnAlterar" class="btn btn-warning">Alterar</button>
-					<button id="btnDeleta" class="btn btn-danger">Deletar</button>
+					<button id="btnEntrada" class="btn btn-success bt">Entrada</button>
+					<button id="btnSaida" class="btn btn-info bt">Saída</button>
+					<button onclick="document.getElementById('id<?php echo $value['id_produto']; ?>').style.display='block'" id="btnAlterar" class="btn btn-warning bt">Alterar</button>
+					<button id="btnDeleta" class="btn btn-danger bt">Deletar</button>
 				</td>
 			</tr>
 		<?php }
@@ -163,8 +163,8 @@ class="w3-btn w3-ripple w3-green bt_add">Adicionar novo produto</button>
 		}else{
 			include("include/modalAddProdutos.php");
 			?><button onclick="document.getElementById('addmodal').style.display='block'"
-class="w3-btn w3-ripple w3-green bt_add">Adicionar novo produto</button>
-			<h2 style='color:#dedede;'>Nenhum há nenhum produto!</h2><?php
+class="w3-btn w3-ripple w3-green bt_add" >Adicionar novo produto</button>
+			<h2 style='color:#dedede; display:flex; justify-content:center; align-items:center; background-color:#f09037;; height:50px; width:40%; margin:auto;' >Não há nenhum produto!</h2><?php
 			}
 	}
 	protected function loadPesquisa($dados){
@@ -216,10 +216,10 @@ class="w3-btn w3-ripple w3-green bt_add">Adicionar novo produto</button>
 				<td><?php echo ($value['status']?"Desmontando":"Em estoque"); ?></td>
 				<td>
 
-					<button id="btnEntrada" class="btn btn-success">Entrada</button>
-					<button id="btnSaida" class="btn btn-info">Saída</button>
-					<button onclick="document.getElementById('id<?php echo $value['id_produto']; ?>').style.display='block'" id="btnAlterar" class="btn btn-warning">Alterar</button>
-					<button id="btnDeleta" class="btn btn-danger">Deletar</button>
+					<button id="btnEntrada" class="btn btn-success bt">Entrada</button>
+					<button id="btnSaida" class="btn btn-info bt">Saída</button>
+					<button onclick="document.getElementById('id<?php echo $value['id_produto']; ?>').style.display='block'" id="btnAlterar" class="btn btn-warning bt">Alterar</button>
+					<button id="btnDeleta" class="btn btn-danger bt">Deletar</button>
 				</td>
 			</tr>
 		<?php }

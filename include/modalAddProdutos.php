@@ -3,13 +3,13 @@
     <div class="w3-container modall">
       <span onclick="document.getElementById('addmodal').style.display='none'"
       class="w3-button w3-display-topright">&times;</span>
-	  <form class="formAddProd form-group" id="add<?php echo $idPalete; ?>" style="margin-top:320px;">
-	  <div class="form-group">
+	  <form class="formAddProd form-group" id="add<?php echo $idPalete; ?>" style="position: relative; top:20px;">
+	  
       	<label>Nome</label>
 		  <input type="text" id="txtNome" name="nome_txt" placeholder="LN39G" required="required" class="form-control">
       
-     </div>
-     <button type="button" style="display: none" id="btnNome">Pesquisar Nome</button>
+     
+     <button type="button" style="display: none; margin:auto; position: relative; top:15px;" id="btnNome" class="btn btn-info">Pesquisar Nome</button>
       	<br>
         <div class="velhoRest" style="display: none">
           
