@@ -1,9 +1,13 @@
-<div id="multiModal" class="w3-modal">
+<div id="id<?php echo $value['id_produto']; ?>" class="w3-modal">
   <div class="w3-modal-content w3-animate-zoom modal-sm"> <!-- modal alterar produto -->
     <div class="w3-container modall">
-      <span onclick="document.getElementById('multiModal').style.display='none'"
+      <span onclick="document.getElementById('id<?php echo $value['id_produto']; ?>').style.display='none'"
       class="w3-button w3-display-topright">&times;</span>
-      <form class="multiAlterar_prod form-group" style="margin-top:350px;">
+      <form class="alterar_prod form-group" id="alt<?php echo $value['id_produto'];?>" style="margin-top:350px;">       <form class="multiAlterar_prod form-group" style="margin-top:350px;">
+          <div class="form-group">  
+            <label>Nome</label> 
+            <input type="text" name="nome_txt" placeholder="LN39G" value="<?php echo $value['nome']; ?>" required="required" class="form-control">  
+          </div>
             <br>
             <label>Marca</label>
             <select name="marca_slc" class="form-control">
