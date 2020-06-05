@@ -170,7 +170,7 @@ class="w3-btn w3-ripple w3-green bt_add">Adicionar novo produto</button>
 			include("include/modalAddProdutos.php");
 			?><button onclick="document.getElementById('addmodal').style.display='block'"
 class="w3-btn w3-ripple w3-green bt_add" >Adicionar novo produto</button>
-			<h2 style='color:#dedede; display:flex; justify-content:center; align-items:center; background-color:#f09037;; height:50px; width:40%; margin:auto;' >Não há nenhum produto!</h2><?php
+			<h2 class="sem_prod"  >Não há nenhum produto!</h2><?php
 			}
 	}
 	protected function loadPesquisa($dados){

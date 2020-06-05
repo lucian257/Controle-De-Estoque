@@ -28,7 +28,7 @@ $j(document).ready(function(){ // carregar pagina primeiro #6495ED #6495ED
 	$j("#cod").keydown(function(event){ // Entrar apertando enter
 	 	var tecla = event.keyCode;
 	 	var text = $j('#cod').val();	
-	 	if (tecla == 13 && text == "teste") {
+	 	if (tecla == 13 && text == "un43j5290ag") {
 	 		$j("#credencial").css("display", "none");
 			$j("#corpo").css("display", "");
 			$j("#div_inicial").css("display", "none");
@@ -37,14 +37,14 @@ $j(document).ready(function(){ // carregar pagina primeiro #6495ED #6495ED
 			$j("#retorno").css("display", "");
 			localStorage.setItem('setupTime', now);
 	 		localStorage.setItem("status", "ativo");
-	 	}else if (tecla == 13 && text != "teste") {
-	 		alert("Errado");
+	 	}else if (tecla == 13 && text != "un43j5290ag") {
+	 		alert("Credencial Inválida");
 	 	}
 	 });
 
 	$j('#enter').bind('click', function(){ // Entrar apertando o botao 
 		var text = $j('#cod').val();
-		if (text == "teste") {
+		if (text == "un43j5290ag") {
 			$j("#credencial").css("display", "none");
 			$j("#corpo").css("display", "");
 			$j("#retorno").css("display", "");
