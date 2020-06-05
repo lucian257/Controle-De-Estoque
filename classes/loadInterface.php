@@ -24,7 +24,7 @@ class loadInterface{
 			echo "<tr>";
 			for ($n=1; $n <= $coluna; $n++) { 
 				if($n == 1){
-					echo "<td id='cancel'> Andar $i </td>";
+					echo "<td id='cancel' data-ativo='cancel'> Andar $i </td>";
 				
 				 }
 				
@@ -92,10 +92,10 @@ class loadInterface{
 		echo "<tr>";
 		for ($i=1; $i <= $coluna ; $i++) { 
 			if($i == 1){
-					echo "<td id='cancel'>&nbsp;</td>";
+					echo "<td id='cancel' data-ativo='cancel' style='background:transparent; border:0px; box-shadow: 0px 0px 0px;' >&nbsp;</td>";
 				}
 			?>
-				<td id='cancel'>
+				<td id='cancel' data-ativo='cancel'>
 					coluna <?php echo $i; ?>
 				</td>
 			
@@ -134,7 +134,7 @@ class="w3-btn w3-ripple w3-green bt_add">Adicionar novo produto</button>
 	    		<th>Estado</th>
 	    		<th>Quantidade</th>
 	    		<th>Status</th>
-	    		<th>Ação</th>
+	    		<th colspan='4'>Ação</th>
 	  		</tr>
 		";
 		//echo "<pre>";
@@ -152,8 +152,14 @@ class="w3-btn w3-ripple w3-green bt_add">Adicionar novo produto</button>
 				<td><?php echo ($value['status']?"Desmontando":"Em estoque"); ?></td>
 				<td class="botoes_ac">
 					<button id="btnEntrada" class="btn btn-success bt">Entrada</button>
+				</td>
+				<td class="botoes_ac">	
 					<button id="btnSaida" class="btn btn-info bt">Saída</button>
+				</td>
+				<td class="botoes_ac">	
 					<button onclick="document.getElementById('id<?php echo $value['id_produto']; ?>').style.display='block'" id="btnAlterar" class="btn btn-warning bt">Alterar</button>
+				</td>
+				<td class="botoes_ac">
 					<button id="btnDeleta" class="btn btn-danger bt">Deletar</button>
 				</td>
 			</tr>
@@ -196,7 +202,7 @@ class="w3-btn w3-ripple w3-green bt_add" >Adicionar novo produto</button>
 	    		<th>Estado</th>
 	    		<th>Quantidade</th>
 	    		<th>Status</th>
-	    		<th>Ação</th>
+	    		<th colspan='4'>Ação</th>
 	  		</tr>
 		";
 		foreach ($dados as $value) {
@@ -214,11 +220,16 @@ class="w3-btn w3-ripple w3-green bt_add" >Adicionar novo produto</button>
 				<td><?php echo ($estado_formatado=="NULL"?"Indefinido":$estado_formatado); ?></td>
 				<td class="qtd"><?php echo $value['quantidade']; ?></td>
 				<td><?php echo ($value['status']?"Desmontando":"Em estoque"); ?></td>
-				<td>
-
+				<td class="botoes_ac">
 					<button id="btnEntrada" class="btn btn-success bt">Entrada</button>
+				</td>
+				<td class="botoes_ac">	
 					<button id="btnSaida" class="btn btn-info bt">Saída</button>
+				</td>
+				<td class="botoes_ac">	
 					<button onclick="document.getElementById('id<?php echo $value['id_produto']; ?>').style.display='block'" id="btnAlterar" class="btn btn-warning bt">Alterar</button>
+				</td>
+				<td class="botoes_ac">
 					<button id="btnDeleta" class="btn btn-danger bt">Deletar</button>
 				</td>
 			</tr>

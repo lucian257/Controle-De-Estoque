@@ -13,7 +13,7 @@
             <select name="marca_slc" class="form-control">
                 <option value="LG">LG</option>
                 <option value="Samsung">Samsung</option>
-                <option value="Philco"> >Philco</option>
+                <option value="Philco">Philco</option>
                 <option value="Phillips" <?php echo ($value['marca']=="Phillips"?"selected":""); ?> >Phillips</option>
                 <option value="Sony" <?php echo ($value['marca']=="Sony"?"selected":""); ?> >Sony</option>
                 <option value="CCE" <?php echo ($value['marca']=="CCE"?"selected":""); ?> >CCE</option>

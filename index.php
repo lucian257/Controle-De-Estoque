@@ -19,7 +19,7 @@
 	<div id="div_inicial" style="display: none;">
 	<h3 style="text-align:center;position:relative; top:40px;">Credencial</h3>
 		<div id="credencial">
-			<input id="cod" type="text" value="" name="codigo" class="codigo form-control" style="width:40%;">
+			<input id="cod" type="passsword" value="" name="codigo" class="codigo form-control" style="width:40%;">
 			<button id="enter" class="btn btn-sm">Entrar</button>
 		</div>
 		</div>
@@ -30,7 +30,7 @@
 </svg>
 
 		<div id="pesquisa" style="display: none;">
-			<input id="palavraChave_txt" type='text' placeholder ='Digite a palavra-chave...' class='pesquisar'>
+			<input id="palavraChave_txt" type='text' placeholder ='EX: LN39G' class='pesquisar'>
 			<input id="btnPesquisar" type='button' value='Pesquisar' class = 'botao' >	
 		</div>
 		<svg id="voltar" style="display: none; position:relative; bottom:120px; left:65px;" class="bi bi-arrow-return-left" width="3em" height="3em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
