@@ -13,13 +13,13 @@
 	<link rel="stylesheet" href="assets/css/bootstrap-grid.min.css">
 	<script type="text/javascript" ></script>
 </head>
-<body>
+<body class="bgcolor">
 	<div class="container">
 
 	<div id="div_inicial" style="display: none;">
 	<h3 style="text-align:center;position:relative; top:40px;">Credencial</h3>
 		<div id="credencial">
-			<input id="cod" type="passsword" value="" name="codigo" class="codigo form-control" style="width:40%;">
+			<input id="cod" type="password" value="" name="codigo" class="codigo form-control" style="width:40%;">
 			<button id="enter" class="btn btn-sm">Entrar</button>
 		</div>
 		</div>
